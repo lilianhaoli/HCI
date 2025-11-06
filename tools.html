@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HomeMore — Tools</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="app-shell tools-shell dashboard-shell">
+      <main class="tools-layout">
+        <aside class="sidebar" aria-label="Primary">
+          <div class="sidebar-top">
+            <div class="sidebar-logo">HomeMore</div>
+            <div class="primary-nav">
+              <a class="btn-nav" href="home.html">Home</a>
+              <a class="btn-nav" href="search.html">Search</a>
+              <a class="btn-nav active" href="tools.html">Tools</a>
+            </div>
+          </div>
+          <ul class="tools-list">
+            <li class="tool-item"><span class="tool-icon">👤</span><span class="tool-label">Profile</span></li>
+            <li class="tool-item"><span class="tool-icon">⚙️</span><span class="tool-label">General</span></li>
+            <li class="tool-item"><span class="tool-icon">🖼️</span><span class="tool-label">Appearance</span></li>
+            <li class="tool-item"><span class="tool-icon">🔊</span><span class="tool-label">Audio</span></li>
+            <li class="tool-item"><span class="tool-icon">🔍</span><span class="tool-label">Scanning</span></li>
+            <li class="tool-item"><span class="tool-icon">📝</span><span class="tool-label">Text Parsing</span></li>
+            <li class="tool-item"><span class="tool-icon">🌐</span><span class="tool-label">Translation</span></li>
+            <li class="tool-item"><span class="tool-icon">📋</span><span class="tool-label">Shortcuts</span></li>
+            <li class="tool-item"><span class="tool-icon">⬇️</span><span class="tool-label">Backup</span></li>
+            <li class="tool-item"><span class="tool-icon">❓</span><span class="tool-label">About HomeMore</span></li>
+          </ul>
+          <div class="sidebar-help">❓<span>Help</span></div>
+        </aside>
+
+        <div class="main-area">
+          <header class="site-header tools-header">
+            <div class="left">
+              <div class="logo">🏡</div>
+              <div class="brand-title">HomeMore Tools</div>
+            </div>
+            <!-- center header fills previous empty space with quick actions/search -->
+            <div class="center-header" role="region" aria-label="Tool actions">
+              <div class="header-search">
+                <input id="tools-quick-search" placeholder="Quick search tools or settings" />
+                <button class="btn-outline" aria-label="search tools">🔍</button>
+              </div>
+              <div class="header-actions">
+                <button class="btn-outline">Import</button>
+                <button class="btn-outline">Export</button>
+                <div class="header-pill">Beta</div>
+              </div>
+            </div>
+            <div class="right">
+              <div class="icons">≡ 📶</div>
+              <div class="profile">John Doe ▾</div>
+            </div>
+          </header>
+
+          <section class="tools-main">
+            <div class="tools-content">
+            <section class="tool-section">
+              <div class="tool-header">
+                <h2>Comparison Model</h2>
+                <div class="tool-cta">
+                  <a class="btn-go" href="#">Go →</a>
+                </div>
+              </div>
+              <details class="tool-details">
+                <summary>View details</summary>
+                <div class="tool-body">Compare similar listings by price, size, and recent sales. Use this model to weigh trade-offs and get an automated score.</div>
+              </details>
+            </section>
+            <section class="tool-section">
+              <div class="tool-header">
+                <h2>Market Tracker</h2>
+                <div class="tool-cta">
+                  <a class="btn-go" href="#">Go →</a>
+                </div>
+              </div>
+              <details class="tool-details">
+                <summary>View details</summary>
+                <div class="tool-body">Track median rents, vacancy rates, and listing velocity in your selected neighborhoods over time.</div>
+              </details>
+            </section>
+            <section class="tool-section">
+              <div class="tool-header">
+                <h2>First Time Renter Guide</h2>
+                <div class="tool-cta">
+                  <a class="btn-go" href="#">Go →</a>
+                </div>
+              </div>
+              <details class="tool-details">
+                <summary>View details</summary>
+                <div class="tool-body">Step-by-step checklist for applications, budgeting tips, and sample letters to landlords. Great for renters new to the area.</div>
+              </details>
+            </section>
+            <section class="tool-section">
+              <div class="tool-header">
+                <h2>Reviews Viewer</h2>
+                <div class="tool-cta">
+                  <a class="btn-go" href="#">Go →</a>
+                </div>
+              </div>
+              <details class="tool-details">
+                <summary>View details</summary>
+                <div class="tool-body">Aggregate tenant reviews and sentiment analysis for a quick overview of landlord responsiveness and maintenance quality.</div>
+              </details>
+            </section>
+            <section class="tool-section">
+              <div class="tool-header">
+                <h2>User Settings</h2>
+                <div class="tool-cta">
+                  <a class="btn-go" href="#">Go →</a>
+                </div>
+              </div>
+              <details class="tool-details">
+                <summary>View details</summary>
+                <div class="tool-body">Manage notifications, account preferences, and data export options from here.</div>
+              </details>
+            </section>
+          </div>
+
+          <!-- right rail: quick actions, shortcuts, tips -->
+          <aside class="tools-rail" aria-label="Quick tools and shortcuts">
+            <div class="rail-card">
+              <h4>Quick Actions</h4>
+              <div class="rail-actions">
+                <button class="btn-outline">♡ View Saved</button>
+                <button class="btn-outline">New Comparison</button>
+                <button class="btn-outline">Export Data</button>
+              </div>
+            </div>
+            <div class="rail-card">
+              <h4>Shortcuts</h4>
+              <div class="rail-actions">
+                <button class="btn-outline">My Profile</button>
+                <button class="btn-outline">Account Settings</button>
+              </div>
+            </div>
+            <div class="rail-card">
+              <h4>Tips</h4>
+              <p class="muted">Use the Comparison Model to quickly score similar listings. Expand details to view more without moving the page.</p>
+            </div>
+          </aside>
+
+          <footer class="tools-footer">
+            <div class="social">Stay Connected With Us! <span class="social-icons"></span></div>
+            <div class="links">Navigate: <a href="#">About Us</a> · <a href="#">Our Team</a> · <a href="#">Contact Us</a> · <a href="#">Support</a></div>
+          </footer>
+        </section>
+      </main>
+    </div>
+  </body>
+  <script src="js/tools.js" defer></script>
+</html>

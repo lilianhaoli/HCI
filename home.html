@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HomeMore — Dashboard</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+  <div class="app-shell dashboard-shell">
+      <aside class="sidebar" aria-label="Primary">
+        <div class="sidebar-top">
+          <div class="sidebar-logo">HomeMore</div>
+          <div class="primary-nav">
+            <a class="btn-nav active" href="home.html">Home</a>
+            <a class="btn-nav" href="search.html">Search</a>
+            <a class="btn-nav" href="tools.html">Tools</a>
+          </div>
+          
+        </div>
+        <div class="sidebar-help">❓<span>Help</span></div>
+      </aside>
+
+      <div class="main-area">
+        <header class="site-header dashboard-header">
+          <div class="left">
+            <div class="logo">🏡</div>
+            <div class="search">
+              <input id="search-input" placeholder="Search Listings..." aria-label="Search listings" />
+              <button id="header-search-btn" class="btn-outline">Search</button>
+            </div>
+          </div>
+          <div class="right">
+            <div class="header-stats">
+              <div class="header-stat"><span class="stat-label">Alerts</span><strong class="stat-value">3</strong></div>
+              <div class="header-stat"><span class="stat-label">Messages</span><strong class="stat-value">4</strong></div>
+              <div class="header-actions">
+                <button class="btn-outline" title="Notifications">🔔</button>
+                <div class="profile">John Doe ▾</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="dashboard">
+          <div class="dashboard-hero">
+            <div class="hero-welcome">
+              <h1 class="dashboard-welcome">Welcome back, John</h1>
+              <p class="muted">Here are your updates and quick actions</p>
+            </div>
+            <div class="hero-actions">
+              <div class="stat-pill">Saved: <span class="pill-badge">12</span></div>
+              <div class="stat-pill">Applications: <span class="pill-badge">2</span></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;">
+                <a class="btn-primary" href="search.html">New Search</a>
+                <div class="muted" style="font-size:12px">Try AI filters for faster matches</div>
+              </div>
+            </div>
+          </div>
+
+          <section class="dashboard-cards">
+            <article class="card dash-card">
+              <h3>Local Market Trends</h3>
+              <div class="dash-card-body">
+                <div class="trend-visual">📈</div>
+                <div class="trend-meta">
+                  <div class="muted">6-Month Rent Trends</div>
+                  <div class="small-row"><span>Median Rent:</span><strong>$1,250</strong></div>
+                  <div class="small-row"><span>New Listings:</span><strong>+12%</strong></div>
+                </div>
+              </div>
+            </article>
+
+            <article class="card dash-card">
+              <h3>Jump Back In</h3>
+              <div class="dash-card-body vertical-pills">
+                <button class="btn-outline">♡ View Saved Homes</button>
+                <button class="btn-outline">★ Open Reviewer Tool</button>
+                <button class="btn-outline">⚖️ Compare Two Listings</button>
+              </div>
+            </article>
+
+            <article class="card dash-card">
+              <h3>Next Steps</h3>
+              <div class="dash-card-body">
+                <div class="notice">⚠️ 3 Updates to existing applications</div>
+                <button class="btn-outline">View Status</button>
+                <div class="muted small-row">2 applications pending</div>
+                <div class="muted small-row">Last updated: Jan 15, 2025</div>
+              </div>
+            </article>
+          </section>
+
+          <section class="recent-activity">
+            <h3>Recent Activity</h3>
+            <ul class="activity-list">
+              <li class="activity-item"><div><span>👁️ Viewed listing: 123 Richmond Road</span><div class="muted ago">2h</div></div><div class="activity-actions"><button class="action-btn">View</button></div></li>
+              <li class="activity-item"><div><span>♡ Saved listing: 456 Jamestown Road</span><div class="muted ago">1d</div></div><div class="activity-actions"><button class="action-btn">Open</button></div></li>
+              <li class="activity-item"><div><span>📑 Submitted application: 789 Colonial Ave</span><div class="muted ago">3d</div></div><div class="activity-actions"><button class="action-btn">View</button></div></li>
+            </ul>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

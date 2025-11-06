@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>HomeMore — AI Powered Housing Search</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+			<link rel="stylesheet" href="css/style.css">
+			<!-- Leaflet CSS for interactive map -->
+			<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+	</head>
+	<body>
+			<div class="app-shell dashboard-shell">
+				<aside class="sidebar" aria-label="Primary">
+					<div class="sidebar-top">
+						<div class="sidebar-logo">HomeMore</div>
+						<div class="primary-nav">
+							<a class="btn-nav" href="home.html">Home</a>
+							<a class="btn-nav active" href="search.html">Search</a>
+							<a class="btn-nav" href="tools.html">Tools</a>
+						</div>
+						
+					</div>
+					<div class="sidebar-help">❓<span>Help</span></div>
+				</aside>
+
+				<div class="main-area">
+					<header class="site-header">
+		<div class="left">
+			<div class="logo">🏡</div>
+			<div class="rent-select">
+				<select aria-label="rent or buy">
+					<option>Rent</option>
+					<option>Buy</option>
+				</select>
+			</div>
+					<div class="search">
+						<div class="pill">AI Empowered</div>
+						<input id="search-input" placeholder="One bed with white walls" />
+						<button id="search-btn" aria-label="search">🔍</button>
+					</div>
+		</div>
+		<div class="right">
+			<div class="contact">📞 +1 (800) 657 8976</div>
+			<div class="profile">John Doe ▾</div>
+		</div>
+					</header>
+
+					<main class="page">
+		<section class="results-pane">
+				<div class="results-header">
+					<div class="results-title">
+						<h1 class="brand">HomeMore</h1>
+						<h2 class="subtitle">Best Results:</h2>
+						<div class="result-meta">
+							<span id="results-count">0 results</span>
+						</div>
+					</div>
+					<div class="results-header-right">
+						<div class="util-card chips">
+							<button class="chip">1BR</button>
+							<button class="chip">2BR</button>
+							<button class="chip">Pet‑friendly</button>
+						</div>
+						<div class="util-card">
+							<label for="sort-select" class="muted">Sort</label>
+							<select id="sort-select" class="sort-select" aria-label="Sort results">
+								<option value="recommended">Recommended</option>
+								<option value="price-asc">Price: Low → High</option>
+								<option value="price-desc">Price: High → Low</option>
+								<option value="rating">Rating</option>
+							</select>
+						</div>
+						<div class="util-card price-snap">
+							<div class="snap-label">Median</div>
+							<div class="snap-value">$1,250</div>
+						</div>
+						<div class="util-card map-toggle">
+							<button id="show-list" class="btn-outline switch-item active" aria-pressed="true">List</button>
+							<button id="show-map" class="btn-outline switch-item" aria-pressed="false">Map</button>
+						</div>
+					</div>
+				</div>
+
+					<div class="controls-row">
+						<button id="advanced-btn" class="btn-outline">Advanced Search</button>
+						<div class="filters">⚙️</div>
+					</div>
+
+			<div id="results" class="results-list" aria-live="polite">
+				<!-- JS will render cards here -->
+			</div>
+		</section>
+
+					<section class="map-pane">
+						<div class="map-canvas">
+							<!-- Leaflet map will initialize here -->
+							<div id="leaflet-map"></div>
+						</div>
+					</section>
+					</main>
+				</div>
+
+			<template id="card-template">
+				<article class="card" tabindex="0">
+					<img class="card-img" src="" alt="listing image">
+					<div class="card-body">
+						<h3 class="card-title"></h3>
+						<div class="meta">
+							<span class="rating">⭐</span>
+							<span class="host">Host</span>
+						</div>
+						<p class="card-desc"></p>
+					</div>
+					<div class="card-right">
+						<div class="price-badge" aria-hidden="true"></div>
+					</div>
+				</article>
+			</template>
+
+		<template id="pin-template">
+			<div class="map-pin">
+				<img src="" alt="pin image">
+				<div class="pin-label">
+					<div class="price"></div>
+					<div class="bed-bath"></div>
+				</div>
+			</div>
+		</template>
+
+			<!-- Leaflet JS for interactive map (must load before our app script) -->
+			<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+			<script src="js/app.js" defer></script>
+	</body>
+</html>
+
