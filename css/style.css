@@ -1146,3 +1146,108 @@ body {
     margin-top: 8px;
   }
 }
+
+/* First-time renter checklist page overrides and helpers */
+.checklist-shell {
+  /* keep app-shell look but center the checklist content */
+  align-items: stretch;
+}
+.checklist-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 32px;
+  gap: 12px;
+}
+.checklist-main {
+  width: 100%;
+  max-width: 960px;
+  background: transparent;
+  padding: 0 12px 28px 12px;
+}
+.checklist-intro h1 {
+  font-size: 28px;
+  margin: 8px 0 6px 0;
+}
+.checklist-intro p {
+  margin: 0 0 18px 0;
+  color: #475569;
+}
+.checklist-form {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 28px rgba(2, 6, 23, 0.06);
+  border: 1px solid #eef2f6;
+  display: block;
+}
+.checklist-section {
+  margin-bottom: 18px;
+}
+.checklist-section h2 {
+  font-size: 20px;
+  margin: 6px 0 8px 0;
+  color: #0f172a;
+}
+.checklist-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
+}
+.checklist-section ul li label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #f8fafb;
+  border: 1px solid #f1f5f9;
+  cursor: pointer;
+}
+.checklist-section ul li label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+.checklist-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+@media (max-width: 780px) {
+  .checklist-section ul {
+    grid-template-columns: 1fr;
+  }
+  .checklist-layout {
+    padding: 18px;
+  }
+  .checklist-form {
+    padding: 16px;
+  }
+}
+
+/* Scrolling fixes for the checklist page */
+.app-shell.checklist-shell {
+  /* allow the shell to size within the viewport and scroll when needed */
+  max-height: calc(100vh - 48px);
+  height: auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make the checklist form scroll internally if content is tall */
+.checklist-form {
+  max-height: calc(100vh - 220px);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Small visual gutter for long content */
+.checklist-form::-webkit-scrollbar { width: 10px; }
+.checklist-form::-webkit-scrollbar-thumb { background: rgba(15,23,42,0.08); border-radius: 8px; }
