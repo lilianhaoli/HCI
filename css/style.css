@@ -1249,5 +1249,10 @@ body {
 }
 
 /* Small visual gutter for long content */
-.checklist-form::-webkit-scrollbar { width: 10px; }
-.checklist-form::-webkit-scrollbar-thumb { background: rgba(15,23,42,0.08); border-radius: 8px; }
+.checklist-form::-webkit-scrollbar {
+  width: 10px;
+}
+.checklist-form::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.08);
+  border-radius: 8px;
+}
