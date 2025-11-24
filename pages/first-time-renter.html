@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First-Time Renter Guide - HomeMore</title>
+    <script src="https://kit.fontawesome.com/f4efa66e1d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ---------------------------------
+           William & Mary Colors & Reset
+        -----------------------------------*/
+        :root {
+            --wm-dark-green: #003B2A;
+            --wm-green: #004E38;
+            --wm-gold: #866F45;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --text-dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Open Sans", sans-serif;
+            background: var(--light-gray);
+            color: var(--text-dark);
+        }
+
+        /* ---------------------------------
+           Header Styles
+        -----------------------------------*/
+        .wm-dark-skinny {
+            background: var(--wm-dark-green);
+            height: 12px;
+            width: 100%;
+        }
+        
+        .main-header {
+            background: var(--white);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--wm-green);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            gap: 60px;
+            margin-right: 20px;
+        }
+        
+        .site-title img {
+            width: 200px;
+            margin-top: 10px;
+        }
+        
+        .desktop-nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--wm-green);
+        }
+        
+        .nav-link.active {
+            color: var(--wm-green);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--wm-green);
+        }
+        
+        .header-right-welcome {
+            background: var(--wm-dark-green);
+            height: 100%;
+            padding: 0 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 4px;
+            min-width: 200px;
+            flex-shrink: 0;
+        }
+        
+        .welcome-text {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 400;
+        }
+        
+        .user-name {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* ---------------------------------
+           Mobile Header
+        -----------------------------------*/
+        .mobile-header {
+            display: none;
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            padding: 15px 20px;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--wm-dark-green);
+            color: var(--white);
+            height: 70px;
+        }
+        
+        .mobile-hamburger {
+            width: 30px;
+            height: 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+        
+        .mobile-hamburger span {
+            width: 100%;
+            height: 4px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .mobile-hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .mobile-hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        .mobile-logo img {
+            margin-top: 15px;
+            height: 105px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .mobile-user {
+            font-size: 16px;
+            font-weight: 400;
+        }
+  
+        /* ---------------------------------
+        Mobile Sidebar Menu
+        -----------------------------------*/
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            left: -85%;
+            width: 85%;
+            height: 100vh;
+            background: var(--white);
+            z-index: 1001;
+            transition: left 0.3s ease-in-out;
+            overflow-y: auto;
+            box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .mobile-sidebar.active {
+            left: 0;
+        }
+        
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .sidebar-header {
+            background: var(--wm-dark-green);
+            padding: 30px 20px;
+            color: var(--white);
+        }
+        
+        .sidebar-header h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .sidebar-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .sidebar-nav {
+            padding: 20px 0;
+        }
+        
+        .sidebar-nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 25px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--medium-gray);
+            transition: background 0.2s ease;
+        }
+        
+        .sidebar-nav-link:hover {
+            background: var(--light-gray);
+        }
+        
+        .sidebar-nav-link.active {
+            background: #e8f5e9;
+            color: var(--wm-green);
+            font-weight: 600;
+        }
+        
+        .sidebar-nav-link svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        
+        .sidebar-section {
+            padding: 20px 25px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .sidebar-section-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #999;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        
+        .sidebar-button {
+            width: 100%;
+            padding: 14px;
+            background: var(--wm-green);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            margin-bottom: 10px;
+        }
+        
+        .sidebar-button:hover {
+            background: var(--wm-dark-green);
+        }
+        
+        .sidebar-button.secondary {
+            background: transparent;
+            border: 2px solid var(--wm-green);
+            color: var(--wm-green);
+        }
+        
+        .sidebar-button.secondary:hover {
+            background: var(--light-gray);
+        }
+        
+
+        /* ---------------------------------
+           Guide Hero Section
+        -----------------------------------*/
+        .guide-hero {
+            background: linear-gradient(135deg, var(--wm-dark-green) 0%, var(--wm-green) 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .guide-hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .guide-hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .guide-hero-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        /* ---------------------------------
+           Table of Contents
+        -----------------------------------*/
+        .toc-section {
+            background: var(--white);
+            padding: 40px 20px;
+            border-bottom: 3px solid var(--wm-green);
+        }
+
+        .toc-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .toc-title {
+            font-size: 28px;
+            color: var(--wm-dark-green);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .toc-card {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .toc-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            border-color: var(--wm-green);
+        }
+
+        .toc-card-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--wm-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 28px;
+            color: var(--white);
+        }
+
+        .toc-card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--wm-dark-green);
+            margin-bottom: 10px;
+        }
+
+        .toc-card-desc {
+            font-size: 14px;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        /* ---------------------------------
+           Guide Content Sections
+        -----------------------------------*/
+        .guide-content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .guide-section {
+            background: var(--white);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            background: var(--wm-green);
+            color: var(--white);
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .section-header:hover {
+            background: var(--wm-dark-green);
+        }
+
+        .section-header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .section-toggle {
+            font-size: 28px;
+            transition: transform 0.3s ease;
+        }
+
+        .section-toggle.open {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .section-content.open {
+            max-height: 5000px;
+        }
+
+        .section-inner {
+            padding: 30px;
+        }
+
+        .section-intro {
+            font-size: 18px;
+            color: var(--wm-green);
+            font-weight: 600;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .subsection {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            border-left: 4px solid var(--wm-gold);
+        }
+
+        .subsection-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--wm-dark-green);
+            margin-bottom: 12px;
+        }
+
+        .subsection-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips-list li {
+            padding: 10px 0 10px 35px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .tips-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--wm-green);
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box strong {
+            color: #ff9800;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .success-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .success-box strong {
+            color: #28a745;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* ---------------------------------
+           Checklist Section
+        -----------------------------------*/
+        .checklist-section {
+            background: var(--white);
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .checklist-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .checklist-title {
+            font-size: 32px;
+            color: var(--wm-dark-green);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .checklist-item {
+            background: var(--light-gray);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item:hover {
+            background: #e8f5e9;
+        }
+
+        .checklist-checkbox {
+            width: 30px;
+            height: 30px;
+            border: 3px solid var(--wm-green);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .checklist-item.checked .checklist-checkbox {
+            background: var(--wm-green);
+        }
+
+        .checklist-checkbox:after {
+            content: '✓';
+            color: var(--white);
+            font-weight: 700;
+            font-size: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .checklist-item.checked .checklist-checkbox:after {
+            opacity: 1;
+        }
+
+        .checklist-text {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .checklist-item.checked .checklist-text {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        /* ---------------------------------
+           CTA Section
+        -----------------------------------*/
+        .guide-cta {
+            background: linear-gradient(135deg, var(--wm-dark-green) 0%, var(--wm-green) 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: var(--white);
+            margin-top: 40px;
+        }
+
+        .guide-cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .guide-cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--wm-gold);
+            color: var(--wm-dark-green);
+            padding: 18px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #9a8052;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ---------------------------------
+           Responsive Design
+        -----------------------------------*/
+        @media (max-width: 950px) {
+            .wm-dark-skinny {
+                display: none;
+            }
+            
+            .main-header {
+                display: none;
+            }
+            
+            .mobile-header {
+                display: flex;
+            }
+
+            .guide-hero h1 {
+                font-size: 36px;
+            }
+
+            .guide-hero p {
+                font-size: 16px;
+            }
+
+            .section-header {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .section-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+
+            .section-inner {
+                padding: 20px;
+            }
+
+            .subsection {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .guide-hero h1 {
+                font-size: 28px;
+            }
+
+            .toc-title {
+                font-size: 24px;
+            }
+
+            .section-header-left {
+                gap: 15px;
+            }
+
+            .section-title {
+                font-size: 18px;
+            }
+            
+            .mobile-user {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Thin Dark Green Accent -->
+    <div class="wm-dark-skinny"></div>
+
+    <!-- Desktop Header -->
+    <header class="main-header">
+        <div class="header-left">
+            <a href="../index.html" class="site-title"><img src="../img/HomeMore_logo.png" alt="HomeMore Logo"></a>
+            <nav class="desktop-nav">
+                <a href="search.html" class="nav-link">Search</a>
+                <a href="resources.html" class="nav-link active">Resources</a>
+                <a href="comparison.html" class="nav-link">Comparison</a>
+                <a href="saved.html" class="nav-link">Saved</a>
+                <a href="messages.html" class="nav-link">Messages</a>
+            </nav>
+        </div>
+        <div class="header-right-welcome">
+            <span class="welcome-text">Welcome Back,</span>
+            <span class="user-name">John Doe</span>
+        </div>
+    </header>
+
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+        <button class="mobile-hamburger" aria-label="Toggle Menu" onclick="toggleSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="mobile-logo">
+           <a href="../index.html"><img src="../img/BW_HomeMore_logo.png" alt="HomeMore Logo"></a> 
+        </div>
+        <div class="mobile-user">John Doe</div>
+    </div>
+
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Mobile Sidebar -->
+    <aside class="mobile-sidebar">
+        <div class="sidebar-header">
+            <h2>Welcome Back,</h2>
+            <p>John Doe</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#search" class="sidebar-nav-link active">
+                <span>Search Listings</span>
+                <span>→</span>
+            </a>
+            <a href="#resources" class="sidebar-nav-link">
+                <span>Resources & Tools</span>
+                <span>→</span>
+            </a>
+            <a href="#comparison" class="sidebar-nav-link">
+                <span>Compare Properties</span>
+                <span class="comparison-badge">3</span>
+            </a>
+            <a href="#saved" class="sidebar-nav-link">
+                <span>Saved Listings</span>
+                <span>→</span>
+            </a>
+            <a href="#messages" class="sidebar-nav-link">
+                <span>Messages</span>
+                <span>→</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Quick Actions</div>
+            <button class="sidebar-button">Post a Listing</button>
+            <button class="sidebar-button secondary">Market Trends</button>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Need Help?</div>
+            <a href="pages/first-time-renter.html" class="sidebar-nav-link">
+                <span>First-Time Renter Guide</span>
+                <span>→</span>
+            </a>
+            <a href="#faq" class="sidebar-nav-link">
+                <span>FAQ</span>
+                <span>→</span>
+            </a>
+            <a href="#contact" class="sidebar-nav-link">
+                <span>Contact Support</span>
+                <span>→</span>
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Account</div>
+            <a href="#profile" class="sidebar-nav-link">
+                <span>Profile Settings</span>
+                <span>→</span>
+            </a>
+            <a href="#notifications" class="sidebar-nav-link">
+                <span>Notifications</span>
+                <span>→</span>
+            </a>
+            <a href="#logout" class="sidebar-nav-link">
+                <span>Log Out</span>
+                <span>→</span>
+            </a>
+        </div>
+    </aside>
+    <!-- Guide Hero Section -->
+    <section class="guide-hero">
+        <div class="guide-hero-icon">📚</div>
+        <h1>First-Time Renter Guide</h1>
+        <p>Everything you need to know about finding and securing your first off-campus housing at William & Mary</p>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="toc-section">
+        <div class="toc-container">
+            <h2 class="toc-title">What You'll Learn</h2>
+            <div class="toc-grid">
+                <div class="toc-card" onclick="scrollToSection('timeline')">
+                    <div class="toc-card-icon"><i class="fa-solid fa-calendar"></i></div>
+                    <h3 class="toc-card-title">Housing Search Timeline</h3>
+                    <p class="toc-card-desc">When to start looking and what to expect during each season</p>
+                </div>
+                <div class="toc-card" onclick="scrollToSection('budget')">
+                    <div class="toc-card-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <h3 class="toc-card-title">Understanding Your Budget</h3>
+                    <p class="toc-card-desc">Calculate total costs including rent, utilities, and hidden expenses</p>
+                </div>
+                <div class="toc-card" onclick="scrollToSection('search')">
+                    <div class="toc-card-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h3 class="toc-card-title">How to Search Effectively</h3>
+                    <p class="toc-card-desc">Proven strategies to find the best listings quickly</p>
+                </div>
+                <div class="toc-card" onclick="scrollToSection('viewing')">
+                    <div class="toc-card-icon"><i class="fa-solid fa-house"></i></div>
+                    <h3 class="toc-card-title">Property Viewing Tips</h3>
+                    <p class="toc-card-desc">What to look for and questions to ask during tours</p>
+                </div>
+                <div class="toc-card" onclick="scrollToSection('lease')">
+                    <div class="toc-card-icon"><i class="fa-solid fa-newspaper"></i></div>
+                    <h3 class="toc-card-title">Understanding Your Lease</h3>
+                    <p class="toc-card-desc">Key terms, red flags, and what to negotiate</p>
+                </div>
+                <div class="toc-card" onclick="scrollToSection('rights')">
+                    <div class="toc-card-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h3 class="toc-card-title">Your Rights as a Tenant</h3>
+                    <p class="toc-card-desc">Know Virginia tenant laws and protect yourself</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Content -->
+    <div class="guide-content">
+        <!-- Timeline Section -->
+        <div class="guide-section" id="timeline">
+            <div class="section-header" onclick="toggleSection('timeline')">
+                <div class="section-header-left">
+                    <div class="section-icon"><i class="fa-solid fa-calendar"></i></div>
+                    <h2 class="section-title">Housing Search Timeline</h2>
+                </div>
+                <div class="section-toggle"><i class="fa-solid fa-angle-down"></i></div>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <p class="section-intro">Start your housing search at the right time to get the best options and avoid stress.</p>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">January - February (Peak Season) ⭐</h3>
+                        <p class="subsection-desc">This is the most competitive time for student housing. Landlords list properties for the upcoming academic year, and the best options go quickly. Start searching early!</p>
+                        <ul class="tips-list">
+                            <li>Set up saved searches on HomeMore and enable notifications</li>
+                            <li>Contact landlords within 24 hours of new listings</li>
+                            <li>Be prepared to tour properties within 2-3 days</li>
+                            <li>Have your roommates decided and ready to commit</li>
+                            <li>Prepare necessary documents (ID, references) in advance</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">March - April (Still Good Options)</h3>
+                        <p class="subsection-desc">Many quality properties are still available, but the best deals may be taken. You'll need to act decisively and be slightly more flexible.</p>
+                        <ul class="tips-list">
+                            <li>Expand your search criteria slightly (distance, price range)</li>
+                            <li>Consider properties just outside your initial preferences</li>
+                            <li>Be ready to make decisions quickly after viewings</li>
+                            <li>Negotiate lease terms - landlords may be more flexible now</li>
+                            <li>Look for properties with multiple bedrooms if you're flexible on roommates</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">May - August (Limited but Possible)</h3>
+                        <p class="subsection-desc">Options are limited, but you might find deals. Some students drop out creating last-minute openings, and landlords may reduce prices to fill vacancies.</p>
+                        <ul class="tips-list">
+                            <li>Check for sublease opportunities from students studying abroad</li>
+                            <li>Be very flexible with move-in dates and lease terms</li>
+                            <li>Monitor listings daily - openings appear suddenly</li>
+                            <li>Consider less popular locations that may have availability</li>
+                            <li>Reach out directly to property management companies</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>⚠️ Pro Tip:</strong>
+                        Don't wait until summer! The majority of quality off-campus housing is secured by March. Starting your search in January gives you the best selection and leverage for negotiations.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Budget Section -->
+        <div class="guide-section" id="budget">
+            <div class="section-header" onclick="toggleSection('budget')">
+                <div class="section-header-left">
+                    <div class="section-icon"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <h2 class="section-title">Understanding Your Budget</h2>
+                </div>
+                <div class="section-toggle"><i class="fa-solid fa-angle-down"></i></div>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <p class="section-intro">Create a realistic budget that includes ALL housing-related expenses, not just rent.</p>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Monthly Rent</h3>
+                        <p class="subsection-desc"><strong>Typical Williamsburg Range:</strong> $600-$1,200 per person depending on location, amenities, and property condition.</p>
+                        <ul class="tips-list">
+                            <li>Closer to campus = higher rent, but lower transportation costs</li>
+                            <li>Newer/renovated properties typically cost $200-400 more per month</li>
+                            <li>Ask if utilities are included (this can save $100-200/month)</li>
+                            <li>Factor in whether parking is included or costs extra</li>
+                            <li>Ask about annual rent increases for multi-year leases</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">Utilities (Often Not Included)</h3>
+                        <p class="subsection-desc"><strong>Budget:</strong> $100-$200 per month for electricity, water, gas, internet, and trash collection.</p>
+                        <ul class="tips-list">
+                            <li>Ask current or previous tenants about average utility bills</li>
+                            <li>Electric bills are higher in summer (AC) and winter (heating)</li>
+                            <li>Check if internet is included or if you need to set it up</li>
+                            <li>Understand how utilities are split among roommates</li>
+                            <li>Some landlords cap utilities - know what happens if you exceed</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">Security Deposit & Upfront Costs</h3>
+                        <p class="subsection-desc"><strong>Typical Amount:</strong> Equal to one month's rent (e.g., if rent is $900, deposit is $900). You get this back if you leave the property in good condition.</p>
+                        <ul class="tips-list">
+                            <li>Document property condition thoroughly at move-in with photos</li>
+                            <li>Note any existing damage to avoid being charged later</li>
+                            <li>Understand the deposit return timeline (usually 30-45 days after move-out)</li>
+                            <li>Ask what conditions result in deposit deductions</li>
+                            <li>Some places require first month + last month + deposit upfront</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">Additional Monthly Costs</h3>
+                        <p class="subsection-desc">These expenses add up quickly and are often forgotten in initial budgets.</p>
+                        <ul class="tips-list">
+                            <li><strong>Renter's Insurance:</strong> $15-30/month (often required, protects your belongings)</li>
+                            <li><strong>Groceries:</strong> $200-400/month (you're not on a meal plan anymore!)</li>
+                            <li><strong>Transportation:</strong> Gas, car maintenance, or WATA bus passes</li>
+                            <li><strong>Household Supplies:</strong> Cleaning products, toilet paper, paper towels</li>
+                            <li><strong>Parking Permits:</strong> Some complexes charge $25-50/month</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">One-Time Setup Costs</h3>
+                        <p class="subsection-desc">Budget $500-1,500 for initial setup depending on what you already own.</p>
+                        <ul class="tips-list">
+                            <li><strong>Application Fee:</strong> $25-50 per person</li>
+                            <li><strong>Furniture:</strong> Couch, dining table, desk, bed frame if not included</li>
+                            <li><strong>Kitchen Essentials:</strong> Dishes, pots, pans, utensils</li>
+                            <li><strong>Cleaning Supplies:</strong> Vacuum, mop, broom, cleaning products</li>
+                            <li><strong>Utility Setup Fees:</strong> Some utilities charge activation fees</li>
+                        </ul>
+                    </div>
+
+                    <div class="success-box">
+                        <strong>💡 Budget Calculator:</strong>
+                        Total Monthly Cost = Rent + Utilities ($100-200) + Insurance ($20) + Groceries ($300) + Transportation ($50-100) = Typically $1,070-$1,520 per month. Make sure you can comfortably afford this!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="guide-section" id="search">
+            <div class="section-header" onclick="toggleSection('search')">
+                <div class="section-header-left">
+                    <div class="section-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h2 class="section-title">How to Search Effectively</h2>
+                </div>
+                <div class="section-toggle"><i class="fa-solid fa-angle-down"></i></div>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <p class="section-intro">Maximize your search efforts with these proven strategies from students who've successfully found great housing.</p>
+                    
+                    <div class="subsection">
+                        <h3 class="subsection-title">Use Multiple Platforms</h3>
+                        <p class="subsection-desc">Don't rely on just one source. Many Williamsburg landlords only post on certain platforms, so you need comprehensive coverage.</p>
+                        <ul class="tips-list">
+                            <li><strong>HomeMore:</strong> Start here for W&M-specific listings with verified reviews</li>
+                            <li><strong>Apartments.com:</strong> Aggregates listings around Williamsburg, often showing pricing and amenities</li>
+                            <li><strong>Facebook Groups & Student Boards:</strong> Roomshares, subleases, and last-minute openings</li>
+                            <li>Set up alerts to be notified immediately of new listings</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">Set Filters and Priorities</h3>
+                        <ul class="tips-list">
+                            <li>Decide your maximum rent early</li>
+                            <li>Determine must-have amenities (furnished, parking, utilities included)</li>
+                            <li>Decide proximity to campus vs. cost tradeoff</li>
+                            <li>Be flexible on minor preferences to widen your options</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">Tour and Evaluate Listings Quickly</h3>
+                        <ul class="tips-list">
+                            <li>Schedule tours immediately after finding a promising listing</li>
+                            <li>Check condition, appliances, plumbing, and neighborhood noise</li>
+                            <li>Ask current tenants about utilities, maintenance, and landlord responsiveness</li>
+                            <li>Bring a checklist to ensure you evaluate all aspects consistently</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">Use Timing to Your Advantage</h3>
+                        <ul class="tips-list">
+                            <li>Start early: January–February gives you the best options</li>
+                            <li>March–April: still good options, but act quickly</li>
+                            <li>May–August: limited availability, consider subleases or less popular locations</li>
+                        </ul>
+                    </div>
+
+                    <div class="success-box">
+                        <strong>💡 Tip:</strong> Have all application materials ready in advance (ID, student status, references, guarantor) so you can act fast when you find the right place.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Viewing Section -->
+        <div class="guide-section" id="viewing">
+            <div class="section-header" onclick="toggleSection('viewing')">
+                <div class="section-header-left">
+                    <div class="section-icon"><i class="fa-solid fa-house"></i></div>
+                    <h2 class="section-title">Property Viewing Tips</h2>
+                </div>
+                <div class="section-toggle"><i class="fa-solid fa-angle-down"></i></div>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <p class="section-intro">Be prepared when touring properties so you can make informed decisions quickly.</p>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">What to Inspect</h3>
+                        <ul class="tips-list">
+                            <li>Appliances and plumbing: check stove, fridge, dishwasher, sink, shower, and toilet</li>
+                            <li>Heating and cooling systems</li>
+                            <li>Windows, doors, and locks for security</li>
+                            <li>Signs of pests or water damage</li>
+                            <li>Closets and storage space</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">Questions to Ask</h3>
+                        <ul class="tips-list">
+                            <li>How responsive is maintenance?</li>
+                            <li>Who manages the property?</li>
+                            <li>Are utilities included?</li>
+                            <li>Parking availability and costs</li>
+                            <li>Lease flexibility (renewals, early termination, subleasing)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lease Section -->
+        <div class="guide-section" id="lease">
+            <div class="section-header" onclick="toggleSection('lease')">
+                <div class="section-header-left">
+                    <div class="section-icon"><i class="fa-solid fa-newspaper"></i></div>
+                    <h2 class="section-title">Understanding Your Lease</h2>
+                </div>
+                <div class="section-toggle"><i class="fa-solid fa-angle-down"></i></div>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <p class="section-intro">Your lease is a legal contract. Understand it fully before signing.</p>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">Key Terms to Review</h3>
+                        <ul class="tips-list">
+                            <li>Lease duration and move-in/move-out dates</li>
+                            <li>Rent amount, due dates, and late fees</li>
+                            <li>Security deposit terms and conditions for return</li>
+                            <li>Utilities and who is responsible</li>
+                            <li>Maintenance responsibilities</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">Red Flags</h3>
+                        <ul class="tips-list">
+                            <li>Unclear or verbal-only agreements</li>
+                            <li>Unusually high application fees</li>
+                            <li>Restrictions not previously discussed</li>
+                            <li>Pressure to sign immediately without review</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">Negotiation Tips</h3>
+                        <ul class="tips-list">
+                            <li>Ask for rent discounts or waived fees for early commitment</li>
+                            <li>Negotiate move-in dates to match your schedule</li>
+                            <li>Request maintenance improvements before signing</li>
+                            <li>Document all agreed-upon changes in writing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tenant Rights Section -->
+        <div class="guide-section" id="rights">
+            <div class="section-header" onclick="toggleSection('rights')">
+                <div class="section-header-left">
+                    <div class="section-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <h2 class="section-title">Your Rights as a Tenant</h2>
+                </div>
+                <div class="section-toggle"><i class="fa-solid fa-angle-down"></i></div>
+            </div>
+            <div class="section-content">
+                <div class="section-inner">
+                    <p class="section-intro">Virginia tenants have rights. Know them to protect yourself and your security deposit.</p>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">Legal Protections</h3>
+                        <ul class="tips-list">
+                            <li>Landlords must provide habitable housing</li>
+                            <li>Security deposits must be returned within 45 days after move-out</li>
+                            <li>Tenants cannot be evicted without proper notice and legal process</li>
+                            <li>Landlords must disclose all fees and policies in writing</li>
+                            <li>Right to request repairs and reasonable accommodations</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3 class="subsection-title">Resources</h3>
+                        <ul class="tips-list">
+                            <li>Virginia Residential Landlord and Tenant Act (VRLTA)</li>
+                            <li>Student legal aid services at William & Mary</li>
+                            <li>Online tenant rights guides for Virginia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CTA Section -->
+    <section class="guide-cta">
+        <h2>Ready to Start Your Search?</h2>
+        <p>Use HomeMore to find, compare, and save off-campus housing that fits your needs and budget.</p>
+        <a href="search.html" class="cta-button">Start Searching Now</a>
+    </section>
+
+    <script>
+        // Toggle Guide Sections
+        function toggleSection(id) {
+            const section = document.getElementById(id);
+            const content = section.querySelector('.section-content');
+            const toggle = section.querySelector('.section-toggle');
+            content.classList.toggle('open');
+            toggle.classList.toggle('open');
+        }
+
+        // Smooth scroll to section
+        function scrollToSection(id) {
+            const section = document.getElementById(id);
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const content = section.querySelector('.section-content');
+            const toggle = section.querySelector('.section-toggle');
+            if (!content.classList.contains('open')) {
+                content.classList.add('open');
+                toggle.classList.add('open');
+            }
+        }
+
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.mobile-sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            const hamburger = document.querySelector('.mobile-hamburger');
+            
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Checklist toggle
+        const checklistItems = document.querySelectorAll('.checklist-item');
+        checklistItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('checked');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Housing Search - William & Mary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-panel {
+            width: 50%;
+            background: #f8f9fa;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .search-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .search-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .search-input-wrapper {
+            position: relative;
+            flex: 1;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 40px 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #115740;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            cursor: pointer;
+        }
+
+        .dropdown-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .dropdown {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+        }
+
+        .filter-button {
+            width: 100%;
+            padding: 10px 20px;
+            background: #115740;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .filter-button:hover {
+            background: #0d4230;
+        }
+
+        .results-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .results-count {
+            font-size: 18px;
+            font-weight: 600;
+            color: #115740;
+        }
+
+        .sort-dropdown {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .listing-card {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .listing-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .listing-image {
+            width: 150px;
+            height: 120px;
+            border-radius: 8px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .listing-info {
+            flex: 1;
+        }
+
+        .listing-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .listing-address {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .listing-details {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 8px;
+        }
+
+        .listing-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #115740;
+        }
+
+        .right-panel {
+            width: 50%;
+            position: relative;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-marker {
+            background: #115740;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            border: 2px solid white;
+        }
+
+        .filter-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .filter-content {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .filter-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .filter-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .close-btn {
+            font-size: 28px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .apply-filters-btn {
+            width: 100%;
+            padding: 12px;
+            background: #115740;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .apply-filters-btn:hover {
+            background: #0d4230;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="search-section">
+                <div class="search-header">
+                    <div class="search-input-wrapper">
+                        <input type="text" class="search-input" id="searchInput" placeholder="Search by location, property name, or address...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                </div>
+
+                <div class="dropdown-section">
+                    <select class="dropdown" id="propertyType">
+                        <option value="">Property Type</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="house">House</option>
+                        <option value="condo">Condo</option>
+                        <option value="townhouse">Townhouse</option>
+                    </select>
+
+                    <select class="dropdown" id="bedrooms">
+                        <option value="">Bedrooms</option>
+                        <option value="1">1 Bedroom</option>
+                        <option value="2">2 Bedrooms</option>
+                        <option value="3">3 Bedrooms</option>
+                        <option value="4+">4+ Bedrooms</option>
+                    </select>
+
+                    <select class="dropdown" id="priceRange">
+                        <option value="">Price Range</option>
+                        <option value="0-800">$0 - $800</option>
+                        <option value="800-1200">$800 - $1,200</option>
+                        <option value="1200-1600">$1,200 - $1,600</option>
+                        <option value="1600+">$1,600+</option>
+                    </select>
+                </div>
+
+                <button class="filter-button" onclick="openFilterModal()">More Filters</button>
+            </div>
+
+            <div class="results-section">
+                <div class="results-header">
+                    <div class="results-count">24 Properties Available</div>
+                    <select class="sort-dropdown" id="sortBy">
+                        <option value="recommended">Recommended</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="distance">Distance from Campus</option>
+                    </select>
+                </div>
+
+                <div id="listingsContainer">
+                    <!-- Listings will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <!-- Filter Modal -->
+    <div class="filter-modal" id="filterModal">
+        <div class="filter-content">
+            <div class="filter-header">
+                <div class="filter-title">Filters</div>
+                <span class="close-btn" onclick="closeFilterModal()">&times;</span>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Amenities</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="parking"> Parking
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="laundry"> Laundry
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="gym"> Gym/Fitness Center
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="pool"> Pool
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="pets"> Pet Friendly
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <label class="filter-label">Lease Length</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="9-month"> 9 Month
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="12-month"> 12 Month
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" value="flexible"> Flexible
+                    </label>
+                </div>
+            </div>
+
+            <button class="apply-filters-btn" onclick="applyFilters()">Apply Filters</button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script>
+        // Sample listing data
+        const listings = [
+            {
+                id: 1,
+                title: "Colonial Apartments",
+                address: "123 Richmond Rd, Williamsburg, VA",
+                bedrooms: 2,
+                bathrooms: 2,
+                price: 1200,
+                type: "apartment",
+                distance: "0.5 miles from campus",
+                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=300&fit=crop",
+                lat: 37.2707,
+                lng: -76.7075,
+                amenities: ["parking", "laundry", "gym"]
+            },
+            {
+                id: 2,
+                title: "Tribe House",
+                address: "456 Scotland St, Williamsburg, VA",
+                bedrooms: 4,
+                bathrooms: 2,
+                price: 1600,
+                type: "house",
+                distance: "0.3 miles from campus",
+                image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop",
+                lat: 37.2719,
+                lng: -76.7095,
+                amenities: ["parking", "laundry"]
+            },
+            {
+                id: 3,
+                title: "Griffin Condos",
+                address: "789 Jamestown Rd, Williamsburg, VA",
+                bedrooms: 1,
+                bathrooms: 1,
+                price: 950,
+                type: "condo",
+                distance: "0.8 miles from campus",
+                image: "https://images.unsplash.com/photo-1502672260066-6bc35f0a1881?w=400&h=300&fit=crop",
+                lat: 37.2685,
+                lng: -76.7115,
+                amenities: ["parking", "pool", "gym"]
+            },
+            {
+                id: 4,
+                title: "Wren Townhouse",
+                address: "321 Monticello Ave, Williamsburg, VA",
+                bedrooms: 3,
+                bathrooms: 2.5,
+                price: 1450,
+                type: "townhouse",
+                distance: "0.6 miles from campus",
+                image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
+                lat: 37.2730,
+                lng: -76.7050,
+                amenities: ["parking", "laundry", "pets"]
+            },
+            {
+                id: 5,
+                title: "Sunken Garden Apartments",
+                address: "555 Landrum Dr, Williamsburg, VA",
+                bedrooms: 2,
+                bathrooms: 1,
+                price: 1100,
+                type: "apartment",
+                distance: "0.4 miles from campus",
+                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop",
+                lat: 37.2695,
+                lng: -76.7105,
+                amenities: ["laundry", "gym"]
+            }
+        ];
+
+        // Initialize map centered on William & Mary
+        const map = L.map('map').setView([37.2707, -76.7075], 14);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add William & Mary marker
+        const wmIcon = L.divIcon({
+            className: 'map-marker',
+            html: '🎓 W&M',
+            iconSize: [80, 35]
+        });
+
+        L.marker([37.2707, -76.7075], {icon: wmIcon})
+            .addTo(map)
+            .bindPopup('<b>William & Mary</b><br>Main Campus');
+
+        // Add listing markers
+        function addMarkers(listingsToShow) {
+            // Clear existing markers except W&M
+            map.eachLayer((layer) => {
+                if (layer instanceof L.Marker && !layer.getPopup()?.getContent()?.includes('Main Campus')) {
+                    map.removeLayer(layer);
+                }
+            });
+
+            listingsToShow.forEach(listing => {
+                const markerIcon = L.divIcon({
+                    className: 'map-marker',
+                    html: `$${listing.price}`,
+                    iconSize: [70, 35]
+                });
+
+                const marker = L.marker([listing.lat, listing.lng], {icon: markerIcon})
+                    .addTo(map)
+                    .bindPopup(`<b>${listing.title}</b><br>${listing.address}<br>$${listing.price}/mo`);
+
+                marker.on('click', () => {
+                    goToListing(listing);
+                });
+            });
+        }
+
+        // Render listings
+        function renderListings(listingsToShow) {
+            const container = document.getElementById('listingsContainer');
+            container.innerHTML = '';
+
+            listingsToShow.forEach(listing => {
+                const card = document.createElement('div');
+                card.className = 'listing-card';
+                card.onclick = () => goToListing(listing);
+
+                card.innerHTML = `
+                    <img src="${listing.image}" alt="${listing.title}" class="listing-image">
+                    <div class="listing-info">
+                        <div class="listing-title">${listing.title}</div>
+                        <div class="listing-address">${listing.address}</div>
+                        <div class="listing-details">
+                            <span>${listing.bedrooms} bed</span>
+                            <span>${listing.bathrooms} bath</span>
+                            <span>${listing.distance}</span>
+                        </div>
+                        <div class="listing-price">$${listing.price}/mo</div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            addMarkers(listingsToShow);
+        }
+
+        // Navigate to listing page
+        function goToListing(listing) {
+            const params = new URLSearchParams({
+                id: listing.id,
+                title: listing.title,
+                address: listing.address,
+                bedrooms: listing.bedrooms,
+                bathrooms: listing.bathrooms,
+                price: listing.price,
+                type: listing.type,
+                distance: listing.distance,
+                image: listing.image,
+                amenities: listing.amenities.join(',')
+            });
+
+            window.location.href = `listing.html?${params.toString()}`;
+        }
+
+        // Filter and search functionality
+        function filterListings() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const propertyType = document.getElementById('propertyType').value;
+            const bedrooms = document.getElementById('bedrooms').value;
+            const priceRange = document.getElementById('priceRange').value;
+
+            let filtered = listings.filter(listing => {
+                const matchesSearch = listing.title.toLowerCase().includes(searchTerm) ||
+                                    listing.address.toLowerCase().includes(searchTerm);
+                const matchesType = !propertyType || listing.type === propertyType;
+                const matchesBedrooms = !bedrooms || listing.bedrooms.toString() === bedrooms || 
+                                       (bedrooms === '4+' && listing.bedrooms >= 4);
+                
+                let matchesPrice = true;
+                if (priceRange) {
+                    if (priceRange === '0-800') matchesPrice = listing.price <= 800;
+                    else if (priceRange === '800-1200') matchesPrice = listing.price > 800 && listing.price <= 1200;
+                    else if (priceRange === '1200-1600') matchesPrice = listing.price > 1200 && listing.price <= 1600;
+                    else if (priceRange === '1600+') matchesPrice = listing.price > 1600;
+                }
+
+                return matchesSearch && matchesType && matchesBedrooms && matchesPrice;
+            });
+
+            document.querySelector('.results-count').textContent = `${filtered.length} Properties Available`;
+            renderListings(filtered);
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', filterListings);
+        document.getElementById('propertyType').addEventListener('change', filterListings);
+        document.getElementById('bedrooms').addEventListener('change', filterListings);
+        document.getElementById('priceRange').addEventListener('change', filterListings);
+
+        // Sort functionality
+        document.getElementById('sortBy').addEventListener('change', (e) => {
+            let sorted = [...listings];
+            
+            switch(e.target.value) {
+                case 'price-low':
+                    sorted.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    sorted.sort((a, b) => b.price - a.price);
+                    break;
+                case 'distance':
+                    sorted.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
+                    break;
+            }
+            
+            renderListings(sorted);
+        });
+
+        // Modal functions
+        function openFilterModal() {
+            document.getElementById('filterModal').style.display = 'flex';
+        }
+
+        function closeFilterModal() {
+            document.getElementById('filterModal').style.display = 'none';
+        }
+
+        function applyFilters() {
+            closeFilterModal();
+            filterListings();
+        }
+
+        // Initial render
+        renderListings(listings);
+    </script>
+</body>
+</html>

@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details - HomeMore</title>
+    <script src="https://kit.fontawesome.com/f4efa66e1d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header Styles from index.html */
+        .wm-dark-skinny {
+            height: 4px;
+            background-color: #115740;
+        }
+
+        .main-header {
+            background-color: white;
+            padding: 0px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .site-title img {
+            height: 120px;
+        }
+
+        .desktop-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #115740;
+        }
+
+        .header-right-welcome {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .welcome-text {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .user-name {
+            font-weight: 600;
+            color: #115740;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 20px 40px;
+            background-color: white;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .breadcrumb a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .breadcrumb a:hover {
+            color: #115740;
+        }
+
+        /* Main Content */
+        .product-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        /* Image Section */
+        .image-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .main-image i {
+            font-size: 5rem;
+            color: #999;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .thumbnail {
+            height: 100px;
+            background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: #115740;
+        }
+
+        .thumbnail i {
+            font-size: 2rem;
+            color: #999;
+        }
+
+        /* Details Section */
+        .details-section {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .property-category {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .property-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .property-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #115740;
+        }
+
+        .info-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .info-badge i {
+            color: #115740;
+        }
+
+        /* Size/Bedroom Selector */
+        .selector-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .selector-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .size-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .size-btn {
+            padding: 12px 24px;
+            border: 2px solid #e0e0e0;
+            background: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .size-btn:hover {
+            border-color: #115740;
+        }
+
+        .size-btn.active {
+            background: #115740;
+            color: white;
+            border-color: #115740;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .add-to-cart-btn {
+            flex: 1;
+            padding: 16px;
+            background: #115740;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background: #0d4730;
+        }
+
+        .wishlist-btn {
+            width: 55px;
+            height: 55px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .wishlist-btn:hover {
+            border-color: #115740;
+            color: #115740;
+        }
+
+        /* Expandable Sections */
+        .expandable-section {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            overflow: hidden;
+        }
+
+        .section-header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .section-header:hover {
+            background: #f9f9f9;
+        }
+
+        .section-content {
+            padding: 0 20px 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Amenities Grid */
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 0 20px 20px;
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .amenity-item i {
+            color: #115740;
+        }
+
+        /* Rating Section */
+        .rating-overview {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 60px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .rating-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .rating-summary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rating-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .rating-denominator {
+            font-size: 1.5rem;
+            color: #999;
+        }
+
+        .rating-stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        .rating-count {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .rating-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .rating-bar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .bar-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            min-width: 40px;
+            font-size: 0.9rem;
+        }
+
+        .bar-label i {
+            color: #ffc107;
+            font-size: 0.8rem;
+        }
+
+        .bar-track {
+            flex: 1;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffc107, #ffb300);
+            border-radius: 4px;
+        }
+
+        .bar-count {
+            min-width: 30px;
+            text-align: right;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Review Card */
+        .review-card {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .reviewer-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #115740;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+        }
+
+        .review-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .review-stars {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            color: #666;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* Recommendations */
+        .recommendations-section {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .recommendation-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .rec-image {
+            height: 200px;
+            background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rec-image i {
+            font-size: 3rem;
+            color: #999;
+        }
+
+        .rec-details {
+            padding: 20px;
+        }
+
+        .rec-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .rec-rating {
+            color: #ffc107;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
+        .rec-price {
+            font-weight: 700;
+            color: #115740;
+            font-size: 1.1rem;
+        }
+
+        .rec-price-old {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+            margin-left: 8px;
+        }
+
+        .rec-discount {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-left: 8px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #222;
+            color: white;
+            padding: 50px 40px 30px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: #115740;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-section p {
+            color: #999;
+            line-height: 1.8;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #666;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .product-container {
+                grid-template-columns: 1fr;
+            }
+
+            .rating-container {
+                grid-template-columns: 1fr;
+            }
+
+            .recommendations-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                padding: 15px 20px;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .product-container,
+            .recommendations-section {
+                padding: 0 20px;
+            }
+
+            .recommendations-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header from index.html -->
+    <div class="wm-dark-skinny"></div>
+
+    <header class="main-header">
+        <div class="header-left">
+            <a href="../index.html" class="site-title"><img src="../img/HomeMore_logo.png" alt="HomeMore Logo"></a>
+            <nav class="desktop-nav">
+                <a href="../pages/search.html" class="nav-link">Search</a>
+                <a href="../pages/resources.html" class="nav-link">Resources</a>
+                <a href="../pages/compare.html" class="nav-link">Comparison</a>
+                <a href="../pages/saved.html" class="nav-link active">Saved</a>
+                <a href="../pages/#" class="nav-link">Messages</a>
+            </nav>
+        </div>
+        <div class="header-right-welcome">
+            <span class="welcome-text">Welcome Back,</span>
+            <span class="user-name">John Doe</span>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="../index.html">← Home</a> > <a href="#">Product details</a>
+    </div>
+
+    <!-- Product Container -->
+    <div class="product-container">
+        <!-- Image Section -->
+        <div class="image-section">
+            <div class="main-image">
+                <i class="fa-solid fa-home"></i>
+            </div>
+            <div class="thumbnail-grid">
+                <div class="thumbnail active">
+                    <i class="fa-solid fa-home"></i>
+                </div>
+                <div class="thumbnail">
+                    <i class="fa-solid fa-home"></i>
+                </div>
+                <div class="thumbnail">
+                    <i class="fa-solid fa-home"></i>
+                </div>
+                <div class="thumbnail">
+                    <i class="fa-solid fa-home"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Details Section -->
+        <div class="details-section">
+            <div class="property-category">Off-Campus Housing</div>
+            <h1 class="property-title">Modern Student Apartment</h1>
+            <div class="property-price">$1,200 / month</div>
+            
+            <div class="info-badge">
+                <i class="fa-regular fa-clock"></i>
+                <span>Order in 02:30:35 to get next day delivery</span>
+            </div>
+
+            <!-- Bedroom Selector -->
+            <div class="selector-section">
+                <div class="selector-label">Select Bedrooms</div>
+                <div class="size-options">
+                    <button class="size-btn">1 BR</button>
+                    <button class="size-btn active">2 BR</button>
+                    <button class="size-btn">3 BR</button>
+                    <button class="size-btn">4 BR</button>
+                    <button class="size-btn">Studio</button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="add-to-cart-btn">Schedule Viewing</button>
+                <button class="wishlist-btn">
+                    <i class="fa-regular fa-heart"></i>
+                </button>
+            </div>
+
+            <!-- Description -->
+            <div class="expandable-section">
+                <div class="section-header">
+                    <span>Description & Details</span>
+                    <i class="fa-solid fa-chevron-up"></i>
+                </div>
+                <div class="section-content">
+                    Beautifully renovated apartment just steps from William & Mary campus. This spacious unit features modern appliances, hardwood floors, and ample natural light. Jersey-lined, drawstring hood, dropped shoulders, long sleeves, and a kangaroo pocket. Wide ribbing at cuffs and hem. Soft, brushed inside.
+                </div>
+            </div>
+
+            <!-- Amenities -->
+            <div class="expandable-section">
+                <div class="section-header">
+                    <span>Amenities</span>
+                    <i class="fa-solid fa-chevron-up"></i>
+                </div>
+                <div class="amenities-grid">
+                    <div class="amenity-item">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Disc 50%</span>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fa-solid fa-box"></i>
+                        <span>Regular Package</span>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fa-solid fa-truck"></i>
+                        <span>3-4 Working Days</span>
+                    </div>
+                    <div class="amenity-item">
+                        <i class="fa-regular fa-calendar"></i>
+                        <span>10 - 12 October 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rating & Reviews -->
+    <div class="product-container">
+        <div style="grid-column: 1 / -1;">
+            <div class="rating-overview">
+                <h2 class="section-title">Rating & Reviews</h2>
+                
+                <div class="rating-container">
+                    <!-- Rating Summary -->
+                    <div class="rating-summary">
+                        <div>
+                            <span class="rating-number">4.5</span>
+                            <span class="rating-denominator">/5</span>
+                        </div>
+                        <div class="rating-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star-half-alt"></i>
+                        </div>
+                        <div class="rating-count">(50 New Reviews)</div>
+                    </div>
+
+                    <!-- Rating Bars -->
+                    <div class="rating-bars">
+                        <div class="rating-bar">
+                            <div class="bar-label">
+                                <i class="fa-solid fa-star"></i>
+                                <span>5</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" style="width: 70%"></div>
+                            </div>
+                            <div class="bar-count">•</div>
+                        </div>
+                        <div class="rating-bar">
+                            <div class="bar-label">
+                                <i class="fa-solid fa-star"></i>
+                                <span>4</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" style="width: 20%"></div>
+                            </div>
+                            <div class="bar-count">•</div>
+                        </div>
+                        <div class="rating-bar">
+                            <div class="bar-label">
+                                <i class="fa-solid fa-star"></i>
+                                <span>3</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" style="width: 5%"></div>
+                            </div>
+                            <div class="bar-count">•</div>
+                        </div>
+                        <div class="rating-bar">
+                            <div class="bar-label">
+                                <i class="fa-solid fa-star"></i>
+                                <span>2</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" style="width: 3%"></div>
+                            </div>
+                            <div class="bar-count">•</div>
+                        </div>
+                        <div class="rating-bar">
+                            <div class="bar-label">
+                                <i class="fa-solid fa-star"></i>
+                                <span>1</span>
+                            </div>
+                            <div class="bar-track">
+                                <div class="bar-fill" style="width: 2%"></div>
+                            </div>
+                            <div class="bar-count">•</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Review -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">AM</div>
+                            <div>
+                                <div class="reviewer-name">Alex Mathio</div>
+                            </div>
+                        </div>
+                        <div class="review-date">13 Oct 2024</div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="review-text">"This apartment exceeded my expectations. The location is perfect for W&M students, and the landlord is very responsive to maintenance requests. I would definitely recommend this place to other students."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="recommendations-section">
+        <h2 class="section-title">You might also like</h2>
+        <div class="recommendations-grid">
+            <div class="recommendation-card">
+                <div class="rec-image">
+                    <i class="fa-solid fa-home"></i>
+                </div>
+                <div class="rec-details">
+                    <div class="rec-title">Richmond Road Apartment</div>
+                    <div class="rec-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <span>4.0/5</span>
+                    </div>
+                    <div>
+                        <span class="rec-price">$1,100</span>
+                        <span class="rec-price-old">$1,400</span>
+                        <span class="rec-discount">-20%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recommendation-card">
+                <div class="rec-image">
+                    <i class="fa-solid fa-home"></i>
+                </div>
+                <div class="rec-details">
+                    <div class="rec-title">Jamestown Road House</div>
+                    <div class="rec-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-alt"></i>
+                        <i class="fa-regular fa-star"></i>
+                        <span>3.5/5</span>
+                    </div>
+                    <div class="rec-price">$1,350</div>
+                </div>
+            </div>
+
+            <div class="recommendation-card">
+                <div class="rec-image">
+                    <i class="fa-solid fa-home"></i>
+                </div>
+                <div class="rec-details">
+                    <div class="rec-title">Scotland Street Studio</div>
+                    <div class="rec-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-alt"></i>
+                        <span>4.5/5</span>
+                    </div>
+                    <div class="rec-price">$950</div>
+                </div>
+            </div>
+
+            <div class="recommendation-card">
+                <div class="rec-image">
+                    <i class="fa-solid fa-home"></i>
+                </div>
+                <div class="rec-details">
+                    <div class="rec-title">Prince George Townhouse</div>
+                    <div class="rec-rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <span>5.0/5</span>
+                    </div>
+                    <div>
+                        <span class="rec-price">$1,500</span>
+                        <span class="rec-price-old">$1,800</span>
+                        <span class="rec-discount">-30%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>About HomeMore</h3>
+                    <p>HomeMore is dedicated to helping William & Mary students find safe, affordable, and quality off-campus housing through transparency and trust.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Search Listings</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Compare Properties</a></li>
+                        <li><a href="#">Saved Listings</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">First-Time Renter Guide</a></li>
+                        <li><a href="#">FAQ
