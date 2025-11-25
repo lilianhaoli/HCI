@@ -1,23 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomeMore - Off-Campus Housing for William & Mary Students</title>
+    
+    <!-- Font Awesome icons -->
     <script src="https://kit.fontawesome.com/f4efa66e1d.js" crossorigin="anonymous"></script>
+    
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Google Fonts Preconnect and Selection -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-<!-- Thin Dark Green Accent -->
+    <!-- Thin Dark Green Accent bar -->
     <div class="wm-dark-skinny"></div>
 
-<!-- Desktop Header -->
+    <!-- Desktop Header -->
     <header class="main-header">
         <div class="header-left">
-            <a href="#" class="site-title"><img src="img/HomeMore_logo.png" alt="HomeMore Logo"></a>
+            <a href="#" class="site-title">
+                <img src="img/HomeMore_logo.png" alt="HomeMore Logo">
+            </a>
             <nav class="desktop-nav">
                 <a href="pages/search.html" class="nav-link active">Search</a>
                 <a href="pages/resources.html" class="nav-link">Resources</a>
@@ -33,59 +44,48 @@
     </header>
 
     <!-- Hero Section -->
-<section class="hero-section">
+    <section class="hero-section">
 
-  <!-- Mobile Header Overlay -->
-  <div class="mobile-header">
-      <button class="mobile-hamburger" aria-label="Toggle Menu" onclick="toggleSidebar()">
-          <span></span>
-          <span></span>
-          <span></span>
-      </button>
-      <div class="mobile-logo">
-          <img src="img/BW_HomeMore_logo.png" alt="HomeMore Logo">
-      </div>
-      <div class="mobile-user">John Doe</div>
-  </div>
+        <!-- Mobile Header Overlay -->
+        <div class="mobile-header">
+            <button class="mobile-hamburger" aria-label="Toggle Menu" onclick="toggleSidebar()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="mobile-logo">
+                <img src="img/BW_HomeMore_logo.png" alt="HomeMore Logo">
+            </div>
+            <div class="mobile-user">John Doe</div>
+        </div>
 
-  <!-- Hero Image -->
-  <div class="hero-image-container">
-      <img 
-          src="img/Wren-building-hero-section.jpg" 
-          alt="William & Mary Wren Building" 
-          class="hero-image"
-      >
-      <div class="hero-overlay"></div>
-  </div>
+        <!-- Hero Image -->
+        <div class="hero-image-container">
+            <img src="img/Wren-building-hero-section.jpg" alt="William & Mary Wren Building" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
 
-  <!-- Hero Content -->
-  <div class="hero-content">
-      <h1 class="hero-title">Rentals. Homes.<br>Agents. Loans.</h1>
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1 class="hero-title">Rentals. Homes.<br>Agents. Loans.</h1>
 
-      <!-- Search Container -->
-      <div class="search-container">
-          <input 
-              type="text"
-              id="searchInput"
-              class="search-bar"
-              placeholder="Enter an address, neighborhood, city, or ZIP code"
-              autocomplete="off"
-          >
-          
-          <button class="search-btn" aria-label="Search">
-              <div class="search-icon"></div>
-          </button>
+            <!-- Search Container -->
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-bar"
+                    placeholder="Enter an address, neighborhood, city, or ZIP code" autocomplete="off">
+                <button class="search-btn" aria-label="Search">
+                    <div class="search-icon"></div>
+                </button>
 
-          <!-- Dropdown for search suggestions -->
-          <div id="searchDropdown" class="search-dropdown"></div>
-      </div>
-      <!-- End Search Container -->
+                <!-- Dropdown for search suggestions -->
+                <div id="searchDropdown" class="search-dropdown"></div>
+            </div>
+            <!-- End Search Container -->
 
-  </div>
-  <!-- End Hero Content -->
+        </div>
+        <!-- End Hero Content -->
 
-</section>
-
+    </section>
 
     <!-- Mobile Sidebar Overlay -->
     <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
@@ -96,7 +96,7 @@
             <h2>Welcome Back,</h2>
             <p>John Doe</p>
         </div>
-        
+
         <nav class="sidebar-nav">
             <a href="pages/search.html" class="sidebar-nav-link active">
                 <span>Search Listings</span>
@@ -162,50 +162,58 @@
     <!-- Welcome Section -->
     <main class="content">
         <h2>Welcome to HomeMore</h2>
-        <p>Your journey to finding the perfect home starts here. Explore thousands of verified listings, connect with trusted landlords and agents, compare properties side-by-side, and access resources designed specifically for William & Mary students transitioning to off-campus housing.</p>
+        <p>Your journey to finding the perfect home starts here. Explore thousands of verified listings, connect with trusted
+            landlords and agents, compare properties side-by-side, and access resources designed specifically for
+            William & Mary students transitioning to off-campus housing.</p>
     </main>
 
     <!-- Features Section -->
     <section class="features-section">
         <div class="features-container">
             <h2 class="section-title">Why Choose HomeMore?</h2>
-            <p class="section-subtitle">We've built the ultimate platform to help William & Mary students find their perfect off-campus home with confidence.</p>
-            
+            <p class="section-subtitle">We've built the ultimate platform to help William & Mary students find their perfect
+                off-campus home with confidence.</p>
+
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-regular fa-house"></i></div>
                     <h3 class="feature-title">Verified Listings</h3>
-                    <p class="feature-description">All properties are verified and up-to-date. No more wasting time on outdated or fake listings.</p>
+                    <p class="feature-description">All properties are verified and up-to-date. No more wasting time on outdated or
+                        fake listings.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-regular fa-star"></i></div>
                     <h3 class="feature-title">Landlord Reviews</h3>
-                    <p class="feature-description">Read honest reviews from fellow students about landlords and properties before you commit.</p>
+                    <p class="feature-description">Read honest reviews from fellow students about landlords and properties before
+                        you commit.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-solid fa-scale-balanced"></i></div>
                     <h3 class="feature-title">Side-by-Side Comparison</h3>
-                    <p class="feature-description">Compare multiple properties at once to make informed decisions based on price, location, and amenities.</p>
+                    <p class="feature-description">Compare multiple properties at once to make informed decisions based on price,
+                        location, and amenities.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon">📍</div>
                     <h3 class="feature-title">Campus Distance</h3>
                     <p class="feature-description">See exact distances to campus buildings and calculate commute times before you visit.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-regular fa-money-bill-1"></i></div>
                     <h3 class="feature-title">Market Insights</h3>
-                    <p class="feature-description">Access pricing trends and market data to ensure you're getting fair value for your budget.</p>
+                    <p class="feature-description">Access pricing trends and market data to ensure you're getting fair value for your
+                        budget.</p>
                 </div>
-                
+
                 <div class="feature-card">
                     <div class="feature-icon"><i class="fa-solid fa-book"></i></div>
                     <h3 class="feature-title">Renter Resources</h3>
-                    <p class="feature-description">First-time renter? We provide guides, checklists, and tips to navigate the rental process with ease.</p>
+                    <p class="feature-description">First-time renter? We provide guides, checklists, and tips to navigate the rental
+                        process with ease.</p>
                 </div>
             </div>
         </div>
@@ -238,36 +246,40 @@
         <div class="steps-container">
             <h2 class="section-title">How It Works</h2>
             <p class="section-subtitle">Finding your perfect off-campus home is easy with HomeMore</p>
-            
+
             <div class="step">
                 <div class="step-number">1</div>
                 <div class="step-content">
                     <h3>Search & Filter</h3>
-                    <p>Enter your preferences: budget, number of bedrooms, distance from campus, and more. Our smart filters help you find exactly what you're looking for in seconds.</p>
+                    <p>Enter your preferences: budget, number of bedrooms, distance from campus, and more. Our smart filters help
+                        you find exactly what you're looking for in seconds.</p>
                 </div>
             </div>
-            
+
             <div class="step">
                 <div class="step-number">2</div>
                 <div class="step-content">
                     <h3>Compare Options</h3>
-                    <p>Add properties to your comparison list and view them side-by-side. See pricing differences, amenities, landlord ratings, and distance calculations all in one place.</p>
+                    <p>Add properties to your comparison list and view them side-by-side. See pricing differences, amenities,
+                        landlord ratings, and distance calculations all in one place.</p>
                 </div>
             </div>
-            
+
             <div class="step">
                 <div class="step-number">3</div>
                 <div class="step-content">
                     <h3>Read Reviews</h3>
-                    <p>Check verified student reviews about the property condition, landlord responsiveness, and overall living experience from people who've been there.</p>
+                    <p>Check verified student reviews about the property condition, landlord responsiveness, and overall living
+                        experience from people who've been there.</p>
                 </div>
             </div>
-            
+
             <div class="step">
                 <div class="step-number">4</div>
                 <div class="step-content">
                     <h3>Connect & Move In</h3>
-                    <p>Message landlords directly through our platform, schedule viewings, and complete your rental application. We're here to support you every step of the way.</p>
+                    <p>Message landlords directly through our platform, schedule viewings, and complete your rental application.
+                        We're here to support you every step of the way.</p>
                 </div>
             </div>
         </div>
@@ -278,11 +290,12 @@
         <div class="testimonials-container">
             <h2 class="section-title">What Students Are Saying</h2>
             <p class="section-subtitle">Hear from W&M students who found their homes through HomeMore</p>
-            
+
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">HomeMore made finding off-campus housing so much easier! I loved being able to compare properties side-by-side and see real reviews from other students. Found my perfect place in just two weeks.</p>
+                    <p class="testimonial-text">HomeMore made finding off-campus housing so much easier! I loved being able to compare properties
+                        side-by-side and see real reviews from other students. Found my perfect place in just two weeks.</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">SK</div>
                         <div class="author-info">
@@ -291,10 +304,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-card">
                     <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">As a first-time renter, I had no idea where to start. The First-Time Renter Guide was incredibly helpful, and the landlord ratings gave me confidence in my choice. Highly recommend!</p>
+                    <p class="testimonial-text">As a first-time renter, I had no idea where to start. The First-Time Renter Guide was incredibly helpful,
+                        and the landlord ratings gave me confidence in my choice. Highly recommend!</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">MR</div>
                         <div class="author-info">
@@ -303,10 +317,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="testimonial-card">
                     <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">The market insights feature helped me understand if I was getting a fair price. I saved over $200/month compared to the first place I was considering. Thank you HomeMore!</p>
+                    <p class="testimonial-text">The market insights feature helped me understand if I was getting a fair price. I saved over $200/month
+                        compared to the first place I was considering. Thank you HomeMore!</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">EL</div>
                         <div class="author-info">
@@ -319,7 +334,7 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Call To Action Section -->
     <section class="cta-section">
         <div class="cta-container">
             <h2 class="cta-title">Ready to Find Your Perfect Home?</h2>
@@ -337,9 +352,10 @@
             <div class="footer-grid">
                 <div class="footer-section">
                     <h3>About HomeMore</h3>
-                    <p>HomeMore is dedicated to helping William & Mary students find safe, affordable, and quality off-campus housing through transparency and trust.</p>
+                    <p>HomeMore is dedicated to helping William & Mary students find safe, affordable, and quality off-campus housing
+                        through transparency and trust.</p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
@@ -349,7 +365,7 @@
                         <li><a href="pages/saved.html">Saved Listings</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <ul>
@@ -359,7 +375,7 @@
                         <li><a href="#tips">Renting Tips</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-section">
                     <h3>Support</h3>
                     <ul>
@@ -370,16 +386,18 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p>&copy; 2025 HomeMore. All rights reserved. Built for William & Mary students by students.</p>
             </div>
         </div>
     </footer>
 
+    <!-- External JS script for search page functionality -->
     <script src="js/pages/search.js"></script>
 
     <script>
+        // Function to toggle the mobile sidebar visibility
         function toggleSidebar() {
             const sidebar = document.querySelector('.mobile-sidebar');
             const overlay = document.querySelector('.sidebar-overlay');
@@ -397,14 +415,14 @@
             }
         }
 
-        // Close sidebar when clicking on a link
+        // Close sidebar when clicking on any sidebar navigation link
         document.querySelectorAll('.sidebar-nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 toggleSidebar();
             });
         });
 
-        // Close sidebar on escape key
+        // Close sidebar on escape key press
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 const sidebar = document.querySelector('.mobile-sidebar');
@@ -414,16 +432,15 @@
             }
         });
 
+        // Show alert popup for messages links (feature coming soon)
         const messageLinks = document.querySelectorAll('.nav-link[href="#messages"], .sidebar-nav-link[href="#messages"]');
-
         messageLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault(); // Prevent default link behavior
                 alert("This is coming soon!"); // Show popup
             });
         });
-
-        
     </script>
 </body>
+
 </html>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Housing Search - William & Mary</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
     <style>
@@ -588,7 +588,7 @@
         </div>
         <div class="header-right-welcome">
             <span class="welcome-text">Welcome Back,</span>
-            <span class="user-name">John Doe</span>
+            <span class="user-name">John Doe</span>
         </div>
     </header>
 
@@ -600,7 +600,7 @@
             <span></span>
         </button>
         <div class="mobile-logo">
-            <img src="https://via.placeholder.com/150x40/FFFFFF/004E38?text=HomeMore" alt="HomeMore Logo">
+            <img src="https://via.placeholder.com/150x40/FFFFFF/004E38?text=HomeMore" alt="HomeMore Logo" />
         </div>
         <div class="mobile-user">John Doe</div>
     </div>
@@ -614,7 +614,6 @@
             <h2>Welcome Back,</h2>
             <p>John Doe</p>
         </div>
-        
         <nav class="sidebar-nav">
             <a href="#" class="sidebar-nav-link active">
                 <span>Search Listings</span>
@@ -644,7 +643,12 @@
             <div class="search-section">
                 <div class="search-header">
                     <div class="search-input-wrapper">
-                        <input type="text" class="search-input" id="searchInput" placeholder="Search by location, property name, or address...">
+                        <input
+                            type="text"
+                            class="search-input"
+                            id="searchInput"
+                            placeholder="Search by location, property name, or address..."
+                        />
                         <span class="search-icon">🔍</span>
                     </div>
                 </div>
@@ -680,7 +684,7 @@
 
             <div class="results-section">
                 <div class="results-header">
-                    <div class="results-count">24 Properties Available</div>
+                    <div class="results-count">0 Properties Available</div>
                     <select class="sort-dropdown" id="sortBy">
                         <option value="recommended">Recommended</option>
                         <option value="price-low">Price: Low to High</option>
@@ -712,19 +716,19 @@
                 <label class="filter-label">Amenities</label>
                 <div class="checkbox-group">
                     <label class="checkbox-item">
-                        <input type="checkbox" value="parking"> Parking
+                        <input type="checkbox" value="parking" /> Parking
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" value="laundry"> Laundry
+                        <input type="checkbox" value="laundry" /> Laundry
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" value="gym"> Gym/Fitness Center
+                        <input type="checkbox" value="gym" /> Gym/Fitness Center
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" value="pool"> Pool
+                        <input type="checkbox" value="pool" /> Pool
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" value="pets"> Pet Friendly
+                        <input type="checkbox" value="pets" /> Pet Friendly
                     </label>
                 </div>
             </div>
@@ -733,13 +737,13 @@
                 <label class="filter-label">Lease Length</label>
                 <div class="checkbox-group">
                     <label class="checkbox-item">
-                        <input type="checkbox" value="9-month"> 9 Month
+                        <input type="checkbox" value="9-month" /> 9 Month
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" value="12-month"> 12 Month
+                        <input type="checkbox" value="12-month" /> 12 Month
                     </label>
                     <label class="checkbox-item">
-                        <input type="checkbox" value="flexible"> Flexible
+                        <input type="checkbox" value="flexible" /> Flexible
                     </label>
                 </div>
             </div>
@@ -750,99 +754,38 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
     <script>
-        // Sample listing data
-        const listings = [
-            {
-                id: 1,
-                title: "Colonial Apartments",
-                address: "123 Richmond Rd, Williamsburg, VA",
-                bedrooms: 2,
-                bathrooms: 2,
-                price: 1200,
-                type: "apartment",
-                distance: "0.5 miles from campus",
-                image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=300&fit=crop",
-                lat: 37.2707,
-                lng: -76.7075,
-                amenities: ["parking", "laundry", "gym"]
-            },
-            {
-                id: 2,
-                title: "Tribe House",
-                address: "456 Scotland St, Williamsburg, VA",
-                bedrooms: 4,
-                bathrooms: 2,
-                price: 1600,
-                type: "house",
-                distance: "0.3 miles from campus",
-                image: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop",
-                lat: 37.2719,
-                lng: -76.7095,
-                amenities: ["parking", "laundry"]
-            },
-            {
-                id: 3,
-                title: "Griffin Condos",
-                address: "789 Jamestown Rd, Williamsburg, VA",
-                bedrooms: 1,
-                bathrooms: 1,
-                price: 950,
-                type: "condo",
-                distance: "0.8 miles from campus",
-                image: "https://images.unsplash.com/photo-1502672260066-6bc35f0a1881?w=400&h=300&fit=crop",
-                lat: 37.2685,
-                lng: -76.7115,
-                amenities: ["parking", "pool", "gym"]
-            },
-            {
-                id: 4,
-                title: "Wren Townhouse",
-                address: "321 Monticello Ave, Williamsburg, VA",
-                bedrooms: 3,
-                bathrooms: 2.5,
-                price: 1450,
-                type: "townhouse",
-                distance: "0.6 miles from campus",
-                image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
-                lat: 37.2730,
-                lng: -76.7050,
-                amenities: ["parking", "laundry", "pets"]
-            },
-            {
-                id: 5,
-                title: "Sunken Garden Apartments",
-                address: "555 Landrum Dr, Williamsburg, VA",
-                bedrooms: 2,
-                bathrooms: 1,
-                price: 1100,
-                type: "apartment",
-                distance: "0.4 miles from campus",
-                image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop",
-                lat: 37.2695,
-                lng: -76.7105,
-                amenities: ["laundry", "gym"]
-            }
-        ];
+        let listings = [];
 
-        // Initialize map centered on William & Mary
+        async function loadListings() {
+            try {
+                const response = await fetch('../data/listings.json');
+                if (!response.ok) throw new Error('Network response was not ok');
+                listings = await response.json();
+                document.querySelector('.results-count').textContent = `${listings.length} Properties Available`;
+                renderListings(listings);
+            } catch (error) {
+                console.error('Failed to load listings:', error);
+                document.getElementById('listingsContainer').innerHTML =
+                    '<p>Failed to load listings. Please try again later.</p>';
+            }
+        }
+
         const map = L.map('map').setView([37.2707, -76.7075], 14);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
+            attribution: '© OpenStreetMap contributors',
         }).addTo(map);
 
-        // Add William & Mary marker
         const wmIcon = L.divIcon({
             className: 'map-marker',
             html: '🎓 W&M',
-            iconSize: [80, 35]
+            iconSize: [80, 35],
         });
 
-        L.marker([37.2707, -76.7075], {icon: wmIcon})
+        L.marker([37.2707, -76.7075], { icon: wmIcon })
             .addTo(map)
             .bindPopup('<b>William & Mary</b><br>Main Campus');
 
-        // Add listing markers
         function addMarkers(listingsToShow) {
             map.eachLayer((layer) => {
                 if (layer instanceof L.Marker && !layer.getPopup()?.getContent()?.includes('Main Campus')) {
@@ -850,14 +793,14 @@
                 }
             });
 
-            listingsToShow.forEach(listing => {
+            listingsToShow.forEach((listing) => {
                 const markerIcon = L.divIcon({
                     className: 'map-marker',
                     html: `$${listing.price}`,
-                    iconSize: [70, 35]
+                    iconSize: [70, 35],
                 });
 
-                const marker = L.marker([listing.lat, listing.lng], {icon: markerIcon})
+                const marker = L.marker([listing.lat, listing.lng], { icon: markerIcon })
                     .addTo(map)
                     .bindPopup(`<b>${listing.title}</b><br>${listing.address}<br>$${listing.price}/mo`);
 
@@ -867,18 +810,17 @@
             });
         }
 
-        // Render listings
         function renderListings(listingsToShow) {
             const container = document.getElementById('listingsContainer');
             container.innerHTML = '';
 
-            listingsToShow.forEach(listing => {
+            listingsToShow.forEach((listing) => {
                 const card = document.createElement('div');
                 card.className = 'listing-card';
                 card.onclick = () => goToListing(listing);
 
                 card.innerHTML = `
-                    <img src="${listing.image}" alt="${listing.title}" class="listing-image">
+                    <img src="${listing.image}" alt="${listing.title}" class="listing-image" />
                     <div class="listing-info">
                         <div class="listing-title">${listing.title}</div>
                         <div class="listing-address">${listing.address}</div>
@@ -897,7 +839,6 @@
             addMarkers(listingsToShow);
         }
 
-        // Navigate to listing page
         function goToListing(listing) {
             const params = new URLSearchParams({
                 id: listing.id,
@@ -909,31 +850,35 @@
                 type: listing.type,
                 distance: listing.distance,
                 image: listing.image,
-                amenities: listing.amenities.join(',')
+                amenities: listing.amenities.join(','),
             });
 
             window.location.href = `listing.html?${params.toString()}`;
         }
 
-        // Filter and search functionality
         function filterListings() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             const propertyType = document.getElementById('propertyType').value;
             const bedrooms = document.getElementById('bedrooms').value;
             const priceRange = document.getElementById('priceRange').value;
 
-            let filtered = listings.filter(listing => {
-                const matchesSearch = listing.title.toLowerCase().includes(searchTerm) ||
-                                    listing.address.toLowerCase().includes(searchTerm);
+            let filtered = listings.filter((listing) => {
+                const matchesSearch =
+                    listing.title.toLowerCase().includes(searchTerm) ||
+                    listing.address.toLowerCase().includes(searchTerm);
                 const matchesType = !propertyType || listing.type === propertyType;
-                const matchesBedrooms = !bedrooms || listing.bedrooms.toString() === bedrooms || 
-                                       (bedrooms === '4+' && listing.bedrooms >= 4);
-                
+                const matchesBedrooms =
+                    !bedrooms ||
+                    listing.bedrooms.toString() === bedrooms ||
+                    (bedrooms === '4+' && listing.bedrooms >= 4);
+
                 let matchesPrice = true;
                 if (priceRange) {
                     if (priceRange === '0-800') matchesPrice = listing.price <= 800;
-                    else if (priceRange === '800-1200') matchesPrice = listing.price > 800 && listing.price <= 1200;
-                    else if (priceRange === '1200-1600') matchesPrice = listing.price > 1200 && listing.price <= 1600;
+                    else if (priceRange === '800-1200')
+                        matchesPrice = listing.price > 800 && listing.price <= 1200;
+                    else if (priceRange === '1200-1600')
+                        matchesPrice = listing.price > 1200 && listing.price <= 1600;
                     else if (priceRange === '1600+') matchesPrice = listing.price > 1600;
                 }
 
@@ -944,17 +889,15 @@
             renderListings(filtered);
         }
 
-        // Event listeners
         document.getElementById('searchInput').addEventListener('input', filterListings);
         document.getElementById('propertyType').addEventListener('change', filterListings);
         document.getElementById('bedrooms').addEventListener('change', filterListings);
         document.getElementById('priceRange').addEventListener('change', filterListings);
 
-        // Sort functionality
         document.getElementById('sortBy').addEventListener('change', (e) => {
             let sorted = [...listings];
-            
-            switch(e.target.value) {
+
+            switch (e.target.value) {
                 case 'price-low':
                     sorted.sort((a, b) => a.price - b.price);
                     break;
@@ -965,11 +908,10 @@
                     sorted.sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
                     break;
             }
-            
+
             renderListings(sorted);
         });
 
-        // Modal functions
         function openFilterModal() {
             document.getElementById('filterModal').style.display = 'flex';
         }
@@ -983,19 +925,18 @@
             filterListings();
         }
 
-        // Mobile sidebar functions
         function toggleSidebar() {
             const sidebar = document.querySelector('.mobile-sidebar');
             const overlay = document.querySelector('.sidebar-overlay');
             const hamburger = document.querySelector('.mobile-hamburger');
-            
+
             sidebar.classList.toggle('active');
             overlay.classList.toggle('active');
             hamburger.classList.toggle('active');
         }
 
-        // Initial render
-        renderListings(listings);
+        // Load listings from JSON file on page load
+        loadListings();
     </script>
 </body>
 </html>

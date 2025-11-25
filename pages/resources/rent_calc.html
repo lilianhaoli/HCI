@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent Affordability Calculator - HomeMore</title>
+    
+    <script src="https://kit.fontawesome.com/f4efa66e1d.js" crossorigin="anonymous"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --wm-dark-green: #003B2A;
+            --wm-green: #004E38;
+            --wm-gold: #866F45;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --text-dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+        }
+        
+        body {
+            font-family: "Open Sans", sans-serif;
+            background: var(--light-gray);
+        }
+        
+        .wm-dark-skinny {
+            background: var(--wm-dark-green);
+            height: 12px;
+            width: 100%;
+        }
+        
+        .main-header {
+            background: var(--white);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--wm-green);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            gap: 60px;
+            margin-right: 20px;
+        }
+        
+        .site-title img {
+            width: 200px;
+            margin-top: 10px;
+        }
+        
+        .desktop-nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--wm-green);
+        }
+        
+        .nav-link.active {
+            color: var(--wm-green);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--wm-green);
+        }
+        
+        .header-right-welcome {
+            background: var(--wm-dark-green);
+            height: 100%;
+            padding: 0 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 4px;
+            min-width: 200px;
+            flex-shrink: 0;
+        }
+        
+        .welcome-text {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 400;
+        }
+        
+        .user-name {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .page-header {
+            background: linear-gradient(135deg, var(--wm-dark-green) 0%, var(--wm-green) 100%);
+            padding: 60px 30px;
+            text-align: center;
+            color: var(--white);
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            opacity: 0.95;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 30px;
+        }
+        
+        .intro-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .intro-section h2 {
+            color: var(--wm-dark-green);
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .intro-section p {
+            color: var(--text-dark);
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .intro-section strong {
+            color: var(--wm-green);
+        }
+        
+        .calculator-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 50px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            margin-bottom: 40px;
+        }
+        
+        .calculator-title {
+            text-align: center;
+            color: var(--wm-dark-green);
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+        
+        .input-group {
+            margin-bottom: 35px;
+        }
+        
+        .input-label {
+            display: block;
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .input-wrapper {
+            position: relative;
+        }
+        
+        .dollar-sign {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--wm-green);
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .income-input {
+            width: 100%;
+            padding: 18px 20px 18px 45px;
+            font-size: 18px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .income-input:focus {
+            outline: none;
+            border-color: var(--wm-green);
+        }
+        
+        .slider-container {
+            margin-top: 15px;
+        }
+        
+        .slider-value {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .percentage-display {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--wm-green);
+        }
+        
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: var(--medium-gray);
+            outline: none;
+            -webkit-appearance: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--wm-green);
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--wm-green);
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s ease;
+        }
+        
+        .slider::-moz-range-thumb:hover {
+            transform: scale(1.2);
+        }
+        
+        .results-section {
+            background: linear-gradient(135deg, var(--wm-dark-green) 0%, var(--wm-green) 100%);
+            border-radius: 12px;
+            padding: 40px;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .results-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            opacity: 0.95;
+        }
+        
+        .rent-amount {
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--wm-gold);
+            margin-bottom: 10px;
+        }
+        
+        .per-month {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .budget-breakdown {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .breakdown-title {
+            text-align: center;
+            color: var(--wm-dark-green);
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        
+        .breakdown-subtitle {
+            text-align: center;
+            color: var(--text-dark);
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .budget-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .budget-card {
+            background: var(--light-gray);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .budget-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+        
+        .budget-card.living::before {
+            background: #4CAF50;
+        }
+        
+        .budget-card.daily::before {
+            background: #FF9800;
+        }
+        
+        .budget-card.savings::before {
+            background: #2196F3;
+        }
+        
+        .budget-percentage {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--wm-dark-green);
+            margin-bottom: 10px;
+        }
+        
+        .budget-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        
+        .budget-amount {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--wm-green);
+        }
+        
+        .budget-description {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .info-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .info-box {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-box h3 {
+            color: var(--wm-dark-green);
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .info-box p {
+            color: var(--text-dark);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        @media (max-width: 768px) {
+            .wm-dark-skinny {
+                display: none;
+            }
+            
+            .main-header {
+                display: none;
+            }
+            
+            .page-header h1 {
+                font-size: 32px;
+            }
+            
+            .page-header p {
+                font-size: 16px;
+            }
+            
+            .calculator-section {
+                padding: 30px 20px;
+            }
+            
+            .calculator-title {
+                font-size: 26px;
+            }
+            
+            .rent-amount {
+                font-size: 42px;
+            }
+            
+            .budget-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .intro-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wm-dark-skinny"></div>
+
+    <header class="main-header">
+        <div class="header-left">
+            <a href="../../index.html" class="site-title">
+                <img src="../../img/HomeMore_logo.png" alt="HomeMore Logo">
+            </a>
+            <nav class="desktop-nav">
+                <a href="pages/search.html" class="nav-link">Search</a>
+                <a href="pages/resources.html" class="nav-link active">Resources</a>
+                <a href="pages/compare.html" class="nav-link">Comparison</a>
+                <a href="pages/saved.html" class="nav-link">Saved</a>
+                <a href="#messages" class="nav-link">Messages</a>
+            </nav>
+        </div>
+        <div class="header-right-welcome">
+            <span class="welcome-text">Welcome Back,</span>
+            <span class="user-name">John Doe</span>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>Rent Affordability Calculator</h1>
+        <p>Discover how much rent you can comfortably afford based on your income and financial goals</p>
+    </div>
+
+    <div class="container">
+        <div class="intro-section">
+            <h2>How Much Should You Spend on Rent?</h2>
+            <p>While there's no one-size-fits-all answer, most financial guidance suggests spending <strong>no more than 30% of your income on rent</strong>. The actual amount depends on your income, lifestyle, and financial priorities.</p>
+            <p>Consider your monthly income and factor in expenses like groceries, transportation, student loans, and other bills to estimate what you can comfortably afford. This calculator helps you visualize your budget using the popular 50/30/20 rule.</p>
+        </div>
+
+        <div class="calculator-section">
+            <h2 class="calculator-title">Calculate Your Rent Budget</h2>
+            
+            <div class="input-group">
+                <label class="input-label">Input your monthly pre-tax income</label>
+                <div class="input-wrapper">
+                    <span class="dollar-sign">$</span>
+                    <input type="number" id="incomeInput" class="income-input" placeholder="5000" value="5000" min="0">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label class="input-label">Percentage of income for rent</label>
+                <div class="slider-container">
+                    <div class="slider-value">
+                        <span class="percentage-display"><span id="percentageDisplay">30</span>%</span>
+                    </div>
+                    <input type="range" id="percentageSlider" class="slider" min="10" max="50" value="30">
+                </div>
+            </div>
+        </div>
+
+        <div class="results-section">
+            <div class="results-title">Your Monthly Rent Budget</div>
+            <div class="rent-amount">$<span id="rentAmount">1,500</span></div>
+            <div class="per-month">per month</div>
+        </div>
+
+        <div class="budget-breakdown">
+            <h2 class="breakdown-title">50/30/20 Budget Guidelines</h2>
+            <p class="breakdown-subtitle">Use these guidelines to help with your budget decisions. If your rent exceeds the Living Expenses guideline, consider looking for a more affordable option.</p>
+            
+            <div class="budget-cards">
+                <div class="budget-card living">
+                    <div class="budget-percentage">50%</div>
+                    <div class="budget-label">Living Expenses</div>
+                    <div class="budget-amount">$<span id="livingExpenses">2,500</span>/mo.</div>
+                    <div class="budget-description">Rent, utilities, groceries, transportation, insurance, and other essential costs</div>
+                </div>
+                
+                <div class="budget-card daily">
+                    <div class="budget-percentage">30%</div>
+                    <div class="budget-label">Daily Expenses</div>
+                    <div class="budget-amount">$<span id="dailyExpenses">1,500</span>/mo.</div>
+                    <div class="budget-description">Entertainment, dining out, shopping, hobbies, and discretionary spending</div>
+                </div>
+                
+                <div class="budget-card savings">
+                    <div class="budget-percentage">20%</div>
+                    <div class="budget-label">Savings</div>
+                    <div class="budget-amount">$<span id="savingsAmount">1,000</span>/mo.</div>
+                    <div class="budget-description">Emergency fund, retirement contributions, debt repayment, and future goals</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-boxes">
+            <div class="info-box">
+                <h3><i class="fa-solid fa-lightbulb"></i> Smart Budgeting Tips</h3>
+                <p>Remember that the 30% rule is a guideline, not a hard limit. Consider your lifestyle, debt obligations, and financial goals when determining your ideal rent budget. If you're a homebody who doesn't spend much on entertainment, you might afford to spend more on rent for a nicer place.</p>
+            </div>
+            
+            <div class="info-box">
+                <h3><i class="fa-solid fa-calculator"></i> Don't Forget Hidden Costs</h3>
+                <p>When budgeting for rent, factor in additional costs like utilities (water, electric, internet), renters insurance, parking fees, and potential maintenance costs. These can add $100-300+ to your monthly housing expenses.</p>
+            </div>
+            
+            <div class="info-box">
+                <h3><i class="fa-solid fa-chart-line"></i> Plan for the Future</h3>
+                <p>While finding an affordable place is important, also consider your future income potential and any anticipated changes in your financial situation. Leave room in your budget for unexpected expenses and opportunities to save.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const incomeInput = document.getElementById('incomeInput');
+        const percentageSlider = document.getElementById('percentageSlider');
+        const percentageDisplay = document.getElementById('percentageDisplay');
+        const rentAmount = document.getElementById('rentAmount');
+        const livingExpenses = document.getElementById('livingExpenses');
+        const dailyExpenses = document.getElementById('dailyExpenses');
+        const savingsAmount = document.getElementById('savingsAmount');
+
+        function formatNumber(num) {
+            return num.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        }
+
+        function calculateBudget() {
+            const income = parseFloat(incomeInput.value) || 0;
+            const percentage = parseInt(percentageSlider.value);
+            
+            percentageDisplay.textContent = percentage;
+            
+            const rent = (income * percentage) / 100;
+            rentAmount.textContent = formatNumber(Math.round(rent));
+            
+            const living = income * 0.5;
+            const daily = income * 0.3;
+            const savings = income * 0.2;
+            
+            livingExpenses.textContent = formatNumber(Math.round(living));
+            dailyExpenses.textContent = formatNumber(Math.round(daily));
+            savingsAmount.textContent = formatNumber(Math.round(savings));
+        }
+
+        incomeInput.addEventListener('input', calculateBudget);
+        percentageSlider.addEventListener('input', calculateBudget);
+
+        calculateBudget();
+
+        const messageLinks = document.querySelectorAll('a[href="#messages"]');
+        messageLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert("This is coming soon!");
+            });
+        });
+    </script>
+</body>
+</html>

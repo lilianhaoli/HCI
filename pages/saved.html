@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Listings - HomeMore</title>
+    
+    <!-- Font Awesome icons -->
+    <script src="https://kit.fontawesome.com/f4efa66e1d.js" crossorigin="anonymous"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Open Sans", sans-serif;
+        }
+
+        :root {
+            --wm-dark-green: #003B2A;
+            --wm-green: #004E38;
+            --wm-gold: #866F45;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e0e0e0;
+            --text-dark: #333333;
+        }
+
+        body {
+            background: var(--light-gray);
+            color: var(--text-dark);
+        }
+
+        /* Header Styles */
+        .wm-dark-skinny {
+            background: var(--wm-dark-green);
+            height: 12px;
+            width: 100%;
+        }
+
+        .main-header {
+            background: var(--white);
+            height: 80px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--wm-green);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+            gap: 60px;
+            margin-right: 20px;
+        }
+
+        .site-title img {
+            width: 200px;
+            margin-top: 10px;
+        }
+
+        .desktop-nav {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--wm-green);
+        }
+
+        .nav-link.active {
+            color: var(--wm-green);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--wm-green);
+        }
+
+        .header-right-welcome {
+            background: var(--wm-dark-green);
+            height: 100%;
+            padding: 0 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 4px;
+            min-width: 200px;
+            flex-shrink: 0;
+        }
+
+        .welcome-text {
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .user-name {
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* Mobile Header */
+        .mobile-header {
+            display: none;
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            padding: 0 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .mobile-hamburger {
+            width: 30px;
+            height: 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 1002;
+        }
+
+        .mobile-hamburger span {
+            width: 100%;
+            height: 4px;
+            background: var(--wm-dark-green);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .mobile-logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .mobile-user {
+            font-size: 14px;
+            color: var(--wm-dark-green);
+            font-weight: 500;
+        }
+
+        /* Mobile Sidebar */
+        .mobile-sidebar {
+            position: fixed;
+            top: 0;
+            left: -75%;
+            width: 75%;
+            height: 100vh;
+            background: var(--white);
+            z-index: 1001;
+            transition: left 0.3s ease-in-out;
+            overflow-y: auto;
+            box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-sidebar.active {
+            left: 0;
+        }
+
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar-header {
+            background: var(--wm-dark-green);
+            padding: 30px 20px;
+            color: var(--white);
+        }
+
+        .sidebar-header h2 {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .sidebar-nav {
+            padding: 20px 0;
+        }
+
+        .sidebar-nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 25px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 500;
+            border-bottom: 1px solid var(--medium-gray);
+            transition: background 0.2s ease;
+        }
+
+        .sidebar-nav-link:hover {
+            background: var(--light-gray);
+        }
+
+        .sidebar-nav-link.active {
+            background: #e8f5e9;
+            color: var(--wm-green);
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .saved-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .saved-header {
+            margin-bottom: 30px;
+        }
+
+        .saved-header h1 {
+            font-size: 32px;
+            color: var(--wm-dark-green);
+            margin-bottom: 10px;
+        }
+
+        .saved-count {
+            color: #666;
+            font-size: 16px;
+        }
+
+        .saved-list {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .saved-item {
+            display: grid;
+            grid-template-columns: 180px 1fr auto;
+            gap: 20px;
+            padding: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+            align-items: center;
+        }
+
+        .saved-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 180px;
+            height: 120px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-image i {
+            font-size: 3rem;
+            color: #999;
+        }
+
+        .item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .item-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--wm-dark-green);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .item-title:hover {
+            color: var(--wm-green);
+        }
+
+        .item-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .meta-item i {
+            color: var(--wm-green);
+        }
+
+        .item-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--wm-green);
+            margin-top: 8px;
+        }
+
+        .item-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-end;
+        }
+
+        .action-btn {
+            padding: 10px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .view-btn {
+            background: var(--wm-green);
+            color: var(--white);
+        }
+
+        .view-btn:hover {
+            background: var(--wm-dark-green);
+        }
+
+        .remove-btn {
+            background: transparent;
+            color: #d32f2f;
+            border: 1px solid #d32f2f;
+        }
+
+        .remove-btn:hover {
+            background: #d32f2f;
+            color: var(--white);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .empty-state i {
+            font-size: 80px;
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+        }
+
+        .empty-state h2 {
+            color: var(--text-dark);
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .empty-state p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .browse-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--wm-green);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .browse-btn:hover {
+            background: var(--wm-dark-green);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 950px) {
+            .wm-dark-skinny {
+                display: none;
+            }
+
+            .main-header {
+                display: none;
+            }
+
+            .mobile-header {
+                display: flex;
+            }
+
+            .saved-item {
+                grid-template-columns: 120px 1fr;
+                gap: 15px;
+            }
+
+            .item-image {
+                width: 120px;
+                height: 80px;
+            }
+
+            .item-actions {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                justify-content: flex-start;
+                margin-top: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .saved-container {
+                margin: 20px auto;
+            }
+
+            .saved-header h1 {
+                font-size: 24px;
+            }
+
+            .saved-item {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+
+            .item-image {
+                width: 100%;
+                height: 180px;
+            }
+
+            .item-title {
+                font-size: 18px;
+            }
+
+            .item-price {
+                font-size: 20px;
+            }
+
+            .action-btn {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Thin Dark Green Accent bar -->
+    <div class="wm-dark-skinny"></div>
+
+    <!-- Desktop Header -->
+    <header class="main-header">
+        <div class="header-left">
+            <a href="../index.html" class="site-title">
+                <img src="../img/HomeMore_logo.png" alt="HomeMore Logo">
+            </a>
+            <nav class="desktop-nav">
+                <a href="search.html" class="nav-link">Search</a>
+                <a href="resources.html" class="nav-link">Resources</a>
+                <a href="compare.html" class="nav-link">Comparison</a>
+                <a href="saved.html" class="nav-link active">Saved</a>
+                <a href="#messages" class="nav-link">Messages</a>
+            </nav>
+        </div>
+        <div class="header-right-welcome">
+            <span class="welcome-text">Welcome Back,</span>
+            <span class="user-name">John Doe</span>
+        </div>
+    </header>
+
+    <!-- Mobile Header Overlay -->
+    <div class="mobile-header">
+        <button class="mobile-hamburger" aria-label="Toggle Menu" onclick="toggleSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="mobile-logo">
+            <img src="../img/HomeMore_logo.png" alt="HomeMore Logo">
+        </div>
+        <div class="mobile-user">John Doe</div>
+    </div>
+
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Mobile Sidebar -->
+    <aside class="mobile-sidebar">
+        <div class="sidebar-header">
+            <h2>Welcome Back,</h2>
+            <p>John Doe</p>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="search.html" class="sidebar-nav-link">
+                <span>Search Listings</span>
+                <span>→</span>
+            </a>
+            <a href="resources.html" class="sidebar-nav-link">
+                <span>Resources & Tools</span>
+                <span>→</span>
+            </a>
+            <a href="compare.html" class="sidebar-nav-link">
+                <span>Compare Properties</span>
+                <span>→</span>
+            </a>
+            <a href="saved.html" class="sidebar-nav-link active">
+                <span>Saved Listings</span>
+                <span>→</span>
+            </a>
+            <a href="#messages" class="sidebar-nav-link">
+                <span>Messages</span>
+                <span>→</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="saved-container">
+        <div class="saved-header">
+            <h1>Saved Listings</h1>
+            <p class="saved-count"><span id="itemCount">0</span> properties saved</p>
+        </div>
+
+        <div class="saved-list" id="savedList">
+            <!-- Empty state will be shown here if no items -->
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle the mobile sidebar
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.mobile-sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            const hamburger = document.querySelector('.mobile-hamburger');
+            
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            
+            if (sidebar.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Get saved listings from localStorage
+        function getSavedListings() {
+            const saved = localStorage.getItem('savedListings');
+            return saved ? JSON.parse(saved) : [];
+        }
+
+        // Save listings to localStorage
+        function saveListing(listing) {
+            const saved = getSavedListings();
+            if (!saved.find(item => item.id === listing.id)) {
+                saved.push(listing);
+                localStorage.setItem('savedListings', JSON.stringify(saved));
+            }
+        }
+
+        // Remove listing from localStorage
+        function removeListing(id) {
+            const saved = getSavedListings();
+            const filtered = saved.filter(item => item.id !== id);
+            localStorage.setItem('savedListings', JSON.stringify(filtered));
+            displaySavedListings();
+        }
+
+        // Display saved listings
+        function displaySavedListings() {
+            const savedList = document.getElementById('savedList');
+            const itemCount = document.getElementById('itemCount');
+            const saved = getSavedListings();
+
+            itemCount.textContent = saved.length;
+
+            if (saved.length === 0) {
+                savedList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fa-regular fa-heart"></i>
+                        <h2>No Saved Listings Yet</h2>
+                        <p>Start browsing properties and click the heart icon to save your favorites here.</p>
+                        <a href="search.html" class="browse-btn">Browse Listings</a>
+                    </div>
+                `;
+                return;
+            }
+
+            savedList.innerHTML = saved.map(listing => `
+                <div class="saved-item">
+                    <div class="item-image">
+                        ${listing.image ? 
+                            `<img src="${listing.image}" alt="${listing.title}">` : 
+                            '<i class="fa-solid fa-home"></i>'
+                        }
+                    </div>
+                    <div class="item-details">
+                        <a href="listing.html?id=${listing.id}" class="item-title">${listing.title}</a>
+                        <div class="item-meta">
+                            <div class="meta-item">
+                                <i class="fa-solid fa-bed"></i>
+                                <span>${listing.bedrooms} BR</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fa-solid fa-bath"></i>
+                                <span>${listing.bathrooms || 2} BA</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fa-solid fa-star"></i>
+                                <span>${listing.rating.toFixed(1)}/5</span>
+                            </div>
+                        </div>
+                        <div class="item-price">$${listing.price.toLocaleString()} / month</div>
+                    </div>
+                    <div class="item-actions">
+                        <a href="listing.html?id=${listing.id}" class="action-btn view-btn">View Details</a>
+                        <button class="action-btn remove-btn" onclick="removeListing(${listing.id})">
+                            <i class="fa-solid fa-trash"></i> Remove
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Load saved listings on page load
+        displaySavedListings();
+
+        // Close sidebar when clicking navigation links
+        document.querySelectorAll('.sidebar-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (document.querySelector('.mobile-sidebar').classList.contains('active')) {
+                    toggleSidebar();
+                }
+            });
+        });
+
+        // Show alert for messages (coming soon)
+        document.querySelectorAll('.nav-link[href="#messages"], .sidebar-nav-link[href="#messages"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert("This is coming soon!");
+            });
+        });
+    </script>
+</body>
+</html>

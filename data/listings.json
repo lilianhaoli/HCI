@@ -1,344 +1,646 @@
-{
-    "listings": [
-      {
-        "id": 1,
-        "address": "123 Richmond Road",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 850,
-        "bedrooms": 3,
-        "bathrooms": 2,
-        "sqft": 1200,
-        "distanceToCampus": 0.8,
-        "landlord": "Green Properties LLC",
-        "landlordRating": 4.5,
-        "available": "August 2025",
-        "amenities": ["Parking", "Laundry", "WiFi"],
-        "description": "Spacious 3-bedroom apartment close to campus with updated kitchen and hardwood floors."
-      },
-      {
-        "id": 2,
-        "address": "456 Scotland Street",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 950,
-        "bedrooms": 4,
-        "bathrooms": 2,
-        "sqft": 1500,
-        "distanceToCampus": 1.2,
-        "landlord": "Colonial Housing Group",
-        "landlordRating": 4.8,
-        "available": "July 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "Dishwasher", "AC"],
-        "description": "Beautiful 4-bedroom house with large backyard and modern appliances."
-      },
-      {
-        "id": 3,
-        "address": "789 Jamestown Road",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 750,
-        "bedrooms": 2,
-        "bathrooms": 1,
-        "sqft": 900,
-        "distanceToCampus": 0.5,
-        "landlord": "Campus Living Rentals",
-        "landlordRating": 4.2,
-        "available": "August 2025",
-        "amenities": ["WiFi", "Laundry"],
-        "description": "Cozy 2-bedroom apartment within walking distance to campus."
-      },
-      {
-        "id": 4,
-        "address": "234 Monticello Avenue",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 1100,
-        "bedrooms": 4,
-        "bathrooms": 3,
-        "sqft": 1800,
-        "distanceToCampus": 1.5,
-        "landlord": "Premium Student Housing",
-        "landlordRating": 4.9,
-        "available": "August 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "Dishwasher", "AC", "Furnished"],
-        "description": "Luxury 4-bedroom townhouse with modern finishes and all amenities included."
-      },
-      {
-        "id": 5,
-        "address": "567 Bypass Road",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 700,
-        "bedrooms": 3,
-        "bathrooms": 1.5,
-        "sqft": 1100,
-        "distanceToCampus": 2.0,
-        "landlord": "Affordable Living Inc",
-        "landlordRating": 3.8,
-        "available": "July 2025",
-        "amenities": ["Parking", "Laundry"],
-        "description": "Budget-friendly 3-bedroom apartment with easy access to shopping and dining."
-      },
-      {
-        "id": 6,
-        "address": "890 Duke of Gloucester Street",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 1250,
-        "bedrooms": 5,
-        "bathrooms": 3,
-        "sqft": 2200,
-        "distanceToCampus": 0.3,
-        "landlord": "Historic District Rentals",
-        "landlordRating": 4.7,
-        "available": "August 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "Dishwasher", "AC", "Hardwood Floors"],
-        "description": "Stunning 5-bedroom colonial home in the historic district, steps from campus."
-      },
-      {
-        "id": 7,
-        "address": "321 Ironbound Road",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23188",
-        "price": 800,
-        "bedrooms": 3,
-        "bathrooms": 2,
-        "sqft": 1250,
-        "distanceToCampus": 3.5,
-        "landlord": "Ironbound Properties",
-        "landlordRating": 4.1,
-        "available": "August 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "AC"],
-        "description": "Spacious apartment complex with pool and fitness center."
-      },
-      {
-        "id": 8,
-        "address": "654 Merrimac Trail",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 675,
-        "bedrooms": 2,
-        "bathrooms": 1,
-        "sqft": 850,
-        "distanceToCampus": 4.0,
-        "landlord": "Trail Side Apartments",
-        "landlordRating": 3.5,
-        "available": "July 2025",
-        "amenities": ["Parking", "Laundry"],
-        "description": "Affordable 2-bedroom apartment with basic amenities."
-      },
-      {
-        "id": 9,
-        "address": "135 Griffin Avenue",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 900,
-        "bedrooms": 3,
-        "bathrooms": 2,
-        "sqft": 1300,
-        "distanceToCampus": 1.0,
-        "landlord": "Griffin Realty",
-        "landlordRating": 4.6,
-        "available": "August 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "Dishwasher", "AC"],
-        "description": "Well-maintained 3-bedroom house with updated kitchen and bathrooms."
-      },
-      {
-        "id": 10,
-        "address": "246 College Terrace",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 825,
-        "bedrooms": 4,
-        "bathrooms": 2,
-        "sqft": 1400,
-        "distanceToCampus": 0.6,
-        "landlord": "Terrace Homes LLC",
-        "landlordRating": 4.4,
-        "available": "August 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "AC"],
-        "description": "Popular student housing option near campus with spacious bedrooms."
-      },
-      {
-        "id": 11,
-        "address": "802 Harrison Avenue",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 950,
-        "bedrooms": 3,
-        "bathrooms": 2.5,
-        "sqft": 1450,
-        "distanceToCampus": 1.1,
-        "landlord": "Harrison Properties",
-        "landlordRating": 4.3,
-        "available": "July 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "Dishwasher", "AC", "Patio"],
-        "description": "Modern townhouse with open floor plan and outdoor space."
-      },
-      {
-        "id": 12,
-        "address": "159 Cary Street",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 775,
-        "bedrooms": 2,
-        "bathrooms": 1.5,
-        "sqft": 950,
-        "distanceToCampus": 0.9,
-        "landlord": "Cary Street Rentals",
-        "landlordRating": 4.0,
-        "available": "August 2025",
-        "amenities": ["Parking", "Laundry", "WiFi"],
-        "description": "Convenient 2-bedroom apartment with recent renovations."
-      },
-      {
-        "id": 13,
-        "address": "753 Brooks Street",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 1050,
-        "bedrooms": 4,
-        "bathrooms": 2.5,
-        "sqft": 1650,
-        "distanceToCampus": 1.3,
-        "landlord": "Brooks Housing Co",
-        "landlordRating": 4.7,
-        "available": "August 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "Dishwasher", "AC", "Backyard"],
-        "description": "Charming 4-bedroom house with large backyard perfect for gatherings."
-      },
-      {
-        "id": 14,
-        "address": "468 Boundary Street",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 725,
-        "bedrooms": 3,
-        "bathrooms": 1,
-        "sqft": 1000,
-        "distanceToCampus": 1.8,
-        "landlord": "Boundary Apartments",
-        "landlordRating": 3.9,
-        "available": "July 2025",
-        "amenities": ["Parking", "Laundry"],
-        "description": "Basic 3-bedroom apartment at an affordable price point."
-      },
-      {
-        "id": 15,
-        "address": "951 Indian Springs Road",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 875,
-        "bedrooms": 3,
-        "bathrooms": 2,
-        "sqft": 1350,
-        "distanceToCampus": 2.5,
-        "landlord": "Springs Management",
-        "landlordRating": 4.2,
-        "available": "August 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "AC", "Pool"],
-        "description": "Apartment in quiet neighborhood with community pool access."
-      },
-      {
-        "id": 16,
-        "address": "357 Longhill Road",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 1000,
-        "bedrooms": 4,
-        "bathrooms": 2.5,
-        "sqft": 1700,
-        "distanceToCampus": 3.0,
-        "landlord": "Longhill Living",
-        "landlordRating": 4.5,
-        "available": "July 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "Dishwasher", "AC", "Garage"],
-        "description": "Spacious 4-bedroom house with attached garage and modern amenities."
-      },
-      {
-        "id": 17,
-        "address": "582 Lafayette Street",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 800,
-        "bedrooms": 2,
-        "bathrooms": 2,
-        "sqft": 1050,
-        "distanceToCampus": 0.7,
-        "landlord": "Lafayette Homes",
-        "landlordRating": 4.6,
-        "available": "August 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "AC"],
-        "description": "Updated 2-bedroom apartment with en-suite bathrooms."
-      },
-      {
-        "id": 18,
-        "address": "214 Parkway Drive",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 1150,
-        "bedrooms": 5,
-        "bathrooms": 3,
-        "sqft": 2000,
-        "distanceToCampus": 1.4,
-        "landlord": "Parkway Properties",
-        "landlordRating": 4.8,
-        "available": "August 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "Dishwasher", "AC", "Furnished", "Deck"],
-        "description": "Premium 5-bedroom house with deck and fully furnished option available."
-      },
-      {
-        "id": 19,
-        "address": "639 Richmond Road Unit B",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23185",
-        "price": 650,
-        "bedrooms": 1,
-        "bathrooms": 1,
-        "sqft": 600,
-        "distanceToCampus": 1.0,
-        "landlord": "Richmond Road Apartments",
-        "landlordRating": 3.7,
-        "available": "August 2025",
-        "amenities": ["Parking", "WiFi"],
-        "description": "Compact 1-bedroom unit perfect for single students."
-      },
-      {
-        "id": 20,
-        "address": "428 Strawberry Plains Road",
-        "city": "Williamsburg",
-        "state": "VA",
-        "zip": "23188",
-        "price": 925,
-        "bedrooms": 3,
-        "bathrooms": 2,
-        "sqft": 1400,
-        "distanceToCampus": 4.5,
-        "landlord": "Plains Rentals",
-        "landlordRating": 4.1,
-        "available": "July 2025",
-        "amenities": ["Parking", "Laundry", "WiFi", "AC", "Yard"],
-        "description": "Quiet 3-bedroom home with large yard in family-friendly neighborhood."
+[
+    {
+      "id": 1,
+      "title": "Colonial Apartments",
+      "address": "123 Richmond Rd, Williamsburg, VA",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "apartment",
+      "distance": "0.5 miles from campus",
+      "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400&h=300&fit=crop",
+      "lat": 37.2707,
+      "lng": -76.7075,
+      "amenities": ["parking", "laundry", "gym"],
+      "rating": 4.5,
+      "reviewCount": 50,
+      "reviews": [
+        {"author": "Alex Mathio", "avatar": "AM", "date": "2024-10-13", "rating": 5, "text": "This apartment exceeded my expectations..."},
+        {"author": "Jane Doe", "avatar": "JD", "date": "2024-09-21", "rating": 4, "text": "Nice location, but a bit noisy at times."}
+      ],
+      "landlord": {
+        "name": "John Smith",
+        "rating": 4.7,
+        "likelihood": 92,
+        "tags": ["Responsive", "Trustworthy", "Friendly"],
+        "reviews": [
+          {"author": "Student A", "rating": 5, "text": "Very helpful and professional."},
+          {"author": "Student B", "rating": 4, "text": "Quick to respond and always fair."}
+        ]
       }
-    ]
-  }
+    },
+    {
+      "id": 2,
+      "title": "Tribe House",
+      "address": "456 Scotland St, Williamsburg, VA",
+      "bedrooms": 4,
+      "bathrooms": 2,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "house",
+      "distance": "0.3 miles from campus",
+      "image": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=400&h=300&fit=crop",
+      "lat": 37.2719,
+      "lng": -76.7095,
+      "amenities": ["parking", "laundry"],
+      "rating": 4.2,
+      "reviewCount": 35,
+      "reviews": [
+        {"author": "Mark Evans", "avatar": "ME", "date": "2024-08-01", "rating": 4, "text": "Great house for group living."},
+        {"author": "Sally Brown", "avatar": "SB", "date": "2024-06-15", "rating": 4, "text": "Nice spacious rooms but noisy neighborhood."}
+      ],
+      "landlord": {
+        "name": "Martha Johnson",
+        "rating": 4.4,
+        "likelihood": 87,
+        "tags": ["Friendly", "Reliable", "Helpful"],
+        "reviews": [
+          {"author": "Student C", "rating": 5, "text": "Always there when needed."},
+          {"author": "Student D", "rating": 4, "text": "Fair and easy to work with."}
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "title": "Griffin Condos",
+      "address": "789 Jamestown Rd, Williamsburg, VA",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "condo",
+      "distance": "0.8 miles from campus",
+      "image": "https://images.unsplash.com/photo-1502672260066-6bc35f0a1881?w=400&h=300&fit=crop",
+      "lat": 37.2685,
+      "lng": -76.7115,
+      "amenities": ["parking", "pool", "gym"],
+      "rating": 4.8,
+      "reviewCount": 60,
+      "reviews": [
+        {"author": "Lilly Adams", "avatar": "LA", "date": "2024-09-10", "rating": 5, "text": "Quiet and modern condo, very convenient."},
+        {"author": "John Smith", "avatar": "JS", "date": "2024-07-22", "rating": 4, "text": "Well maintained but parking is limited."}
+      ],
+      "landlord": {
+        "name": "David Lee",
+        "rating": 4.9,
+        "likelihood": 95,
+        "tags": ["Responsive", "Professional", "Fair"],
+        "reviews": [
+          {"author": "Student E", "rating": 5, "text": "Professional and approachable landlord."},
+          {"author": "Student F", "rating": 5, "text": "Manages property very well."}
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "title": "Wren Townhouse",
+      "address": "321 Monticello Ave, Williamsburg, VA",
+      "bedrooms": 3,
+      "bathrooms": 2.5,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "townhouse",
+      "distance": "0.6 miles from campus",
+      "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=400&h=300&fit=crop",
+      "lat": 37.273,
+      "lng": -76.705,
+      "amenities": ["parking", "laundry", "pets"],
+      "rating": 4.1,
+      "reviewCount": 25,
+      "reviews": [
+        {"author": "Emily Grant", "avatar": "EG", "date": "2024-07-05", "rating": 4, "text": "Lovely townhouse, pet-friendly and close to campus."}
+      ],
+      "landlord": {
+        "name": "Susan Clark",
+        "rating": 4.3,
+        "likelihood": 88,
+        "tags": ["Pet-Friendly", "Helpful", "Flexible"],
+        "reviews": [
+          {"author": "Student G", "rating": 5, "text": "Great with pets and accommodating."},
+          {"author": "Student H", "rating": 4, "text": "Easy to coordinate with."}
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "title": "Sunken Garden Apartments",
+      "address": "555 Landrum Dr, Williamsburg, VA",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "apartment",
+      "distance": "0.4 miles from campus",
+      "image": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=400&h=300&fit=crop",
+      "lat": 37.2695,
+      "lng": -76.7105,
+      "amenities": ["laundry", "gym"],
+      "rating": 4.3,
+      "reviewCount": 40,
+      "reviews": [
+        {"author": "Chris Lee", "avatar": "CL", "date": "2024-08-22", "rating": 4, "text": "Good value, quiet location."}
+      ],
+      "landlord": {
+        "name": "Robert Williams",
+        "rating": 4.4,
+        "likelihood": 90,
+        "tags": ["Reliable", "Quick Support", "Fair Pricing"],
+        "reviews": [
+          {"author": "Student I", "rating": 5, "text": "Always quick to respond to issues."},
+          {"author": "Student J", "rating": 4, "text": "Reasonable rent changes over time."}
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "title": "Williamsburg Studio",
+      "address": "888 Capitol St, Williamsburg, VA",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "apartment",
+      "distance": "0.7 miles from campus",
+      "image": "https://images.unsplash.com/photo-1572120360610-d971b9b7c7e4?w=400&h=300&fit=crop",
+      "lat": 37.2721,
+      "lng": -76.7123,
+      "amenities": ["parking"],
+      "rating": 4.0,
+      "reviewCount": 28,
+      "reviews": [
+        {"author": "Anna Chen", "avatar": "AC", "date": "2024-09-01", "rating": 4, "text": "Cozy and affordable studio."}
+      ],
+      "landlord": {
+        "name": "Elizabeth Brown",
+        "rating": 4.1,
+        "likelihood": 85,
+        "tags": ["Friendly", "Accommodating"],
+        "reviews": [
+          {"author": "Student K", "rating": 4, "text": "Easy going and approachable."},
+          {"author": "Student L", "rating": 4, "text": "Responds promptly to requests."}
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "title": "Historic District Home",
+      "address": "101 Duke of Gloucester St, Williamsburg, VA",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "house",
+      "distance": "0.9 miles from campus",
+      "image": "https://images.unsplash.com/photo-1501183638714-4e6b5552fb54?w=400&h=300&fit=crop",
+      "lat": 37.2745,
+      "lng": -76.7080,
+      "amenities": ["pets", "pool"],
+      "rating": 4.6,
+      "reviewCount": 52,
+      "reviews": [
+        {"author": "Mark Johnson", "avatar": "MJ", "date": "2024-08-15", "rating": 5, "text": "Fantastic historic home with modern amenities."}
+      ],
+      "landlord": {
+        "name": "Anna Wilson",
+        "rating": 4.8,
+        "likelihood": 90,
+        "tags": ["Professional", "Respectful"],
+        "reviews": [
+          {"author": "Student M", "rating": 5, "text": "Very trustworthy and fair."},
+          {"author": "Student N", "rating": 4, "text": "Good support during stay."}
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "title": "Riverside Condos",
+      "address": "202 River St, Williamsburg, VA",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "condo",
+      "distance": "1.2 miles from campus",
+      "image": "https://images.unsplash.com/photo-1494526585095-c41746248156?w=400&h=300&fit=crop",
+      "lat": 37.2667,
+      "lng": -76.7033,
+      "amenities": ["gym", "parking", "laundry"],
+      "rating": 4.4,
+      "reviewCount": 38,
+      "reviews": [
+        {"author": "Susan Miller", "avatar": "SM", "date": "2024-07-30", "rating": 4, "text": "Nice condos with great gym facilities."}
+      ],
+      "landlord": {
+        "name": "George Harris",
+        "rating": 4.5,
+        "likelihood": 89,
+        "tags": ["Helpful", "Responsive", "Friendly"],
+        "reviews": [
+          {"author": "Student O", "rating": 5, "text": "Always quick to address concerns."},
+          {"author": "Student P", "rating": 4, "text": "Easy and clear communication."}
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "title": "The Jamestown House",
+      "address": "321 Jamestown Rd, Williamsburg, VA",
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "house",
+      "distance": "1.0 miles from campus",
+      "image": "https://images.unsplash.com/photo-1590608897129-d229c3b5db89?w=400&h=300&fit=crop",
+      "lat": 37.2690,
+      "lng": -76.7150,
+      "amenities": ["parking", "pets", "laundry"],
+      "rating": 4.7,
+      "reviewCount": 45,
+      "reviews": [
+        {"author": "Michael Green", "avatar": "MG", "date": "2024-06-20", "rating": 5, "text": "Great family home, spacious and well maintained."}
+      ],
+      "landlord": {
+        "name": "Karen Martinez",
+        "rating": 4.6,
+        "likelihood": 91,
+        "tags": ["Fair", "Trustworthy", "Supportive"],
+        "reviews": [
+          {"author": "Student Q", "rating": 5, "text": "Reliable and considerate landlord."},
+          {"author": "Student R", "rating": 4, "text": "Flexible with lease terms."}
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "title": "Campus View Apartments",
+      "address": "987 College Ave, Williamsburg, VA",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "apartment",
+      "distance": "0.3 miles from campus",
+      "image": "https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=400&h=300&fit=crop",
+      "lat": 37.2710,
+      "lng": -76.7060,
+      "amenities": ["pool", "gym", "parking"],
+      "rating": 4.3,
+      "reviewCount": 29,
+      "reviews": [
+        {"author": "Laura White", "avatar": "LW", "date": "2024-08-05", "rating": 4, "text": "Convenient location, great amenities."}
+      ],
+      "landlord": {
+        "name": "Peter Robinson",
+        "rating": 4.2,
+        "likelihood": 86,
+        "tags": ["Communicative", "Professional", "Friendly"],
+        "reviews": [
+          {"author": "Student S", "rating": 4, "text": "Good at responding to messages."},
+          {"author": "Student T", "rating": 4, "text": "Very approachable and flexible."}
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "title": "Midtown Luxury Apartments",
+      "address": "221 Monticello Ave, Williamsburg, VA",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "apartment",
+      "distance": "0.5 miles from campus",
+      "image": "https://images.unsplash.com/photo-1560448204-6b2b7e8a8dd1?w=400&h=300&fit=crop",
+      "lat": 37.2725,
+      "lng": -76.7090,
+      "amenities": ["gym", "parking", "laundry"],
+      "rating": 4.4,
+      "reviewCount": 41,
+      "reviews": [
+        {"author": "Rachel King", "avatar": "RK", "date": "2024-09-10", "rating": 5, "text": "Very modern and close to campus."}
+      ],
+      "landlord": {
+        "name": "Amanda Wright",
+        "rating": 4.5,
+        "likelihood": 90,
+        "tags": ["Friendly", "Organized", "Supportive"],
+        "reviews": [
+          {"author": "Student U", "rating": 5, "text": "Great communication throughout leasing."},
+          {"author": "Student V", "rating": 4, "text": "Accommodating and professional."}
+        ]
+      }
+    },
+    {
+      "id": 12,
+      "title": "High Street View",
+      "address": "150 Kings Manor Dr, Williamsburg, VA",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "apartment",
+      "distance": "1.0 miles from campus",
+      "image": "https://images.unsplash.com/photo-1598300058891-803a00a5cd2d?w=400&h=300&fit=crop",
+      "lat": 37.2698,
+      "lng": -76.7028,
+      "amenities": ["pool", "parking", "gym"],
+      "rating": 4.5,
+      "reviewCount": 43,
+      "reviews": [
+        {"author": "Tom Walters", "avatar": "TW", "date": "2024-08-15", "rating": 5, "text": "Spacious and well maintained."}
+      ],
+      "landlord": {
+        "name": "Brenda Thomas",
+        "rating": 4.6,
+        "likelihood": 88,
+        "tags": ["Reliable", "Prompt", "Fair"],
+        "reviews": [
+          {"author": "Student W", "rating": 5, "text": "Quick replies and resolves issues."},
+          {"author": "Student X", "rating": 4, "text": "Nice to work with."}
+        ]
+      }
+    },
+    {
+      "id": 13,
+      "title": "The James on Merrimac",
+      "address": "500 Merrimac Trail, Williamsburg, VA",
+      "bedrooms": 2,
+      "bathrooms": 1.5,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "apartment",
+      "distance": "0.7 miles from campus",
+      "image": "https://images.unsplash.com/photo-1530629013299-6cbf49903d63?w=400&h=300&fit=crop",
+      "lat": 37.2702,
+      "lng": -76.7051,
+      "amenities": ["laundry", "parking"],
+      "rating": 4.1,
+      "reviewCount": 33,
+      "reviews": [
+        {"author": "Melissa White", "avatar": "MW", "date": "2024-07-10", "rating": 4, "text": "Good location and value."}
+      ],
+      "landlord": {
+        "name": "George Carter",
+        "rating": 4.3,
+        "likelihood": 87,
+        "tags": ["Flexible", "Friendly", "Supportive"],
+        "reviews": [
+          {"author": "Student Y", "rating": 5, "text": "Easy to work with and understanding."},
+          {"author": "Student Z", "rating": 4, "text": "Supports tenants well."}
+        ]
+      }
+    },
+    {
+      "id": 14,
+      "title": "College Commons Townhouse",
+      "address": "222 Merrimac Trail, Williamsburg, VA",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "townhouse",
+      "distance": "0.8 miles from campus",
+      "image": "https://images.unsplash.com/photo-1472220625704-91e1462799b2?w=400&h=300&fit=crop",
+      "lat": 37.2715,
+      "lng": -76.7078,
+      "amenities": ["parking", "pets", "laundry"],
+      "rating": 4.2,
+      "reviewCount": 30,
+      "reviews": [
+        {"author": "Kevin Brooks", "avatar": "KB", "date": "2024-06-20", "rating": 4, "text": "Cozy townhouse, pet-friendly."}
+      ],
+      "landlord": {
+        "name": "Linda Davis",
+        "rating": 4.4,
+        "likelihood": 89,
+        "tags": ["Pet-Friendly", "Helpful", "Quick Responder"],
+        "reviews": [
+          {"author": "Student AA", "rating": 5, "text": "Wonderful with pets and very helpful."},
+          {"author": "Student BB", "rating": 4, "text": "Fast responses to inquiries."}
+        ]
+      }
+    },
+    {
+      "id": 15,
+      "title": "Harmony Apartments",
+      "address": "789 Harmony Lane, Williamsburg, VA",
+      "bedrooms": 1,
+      "bathrooms": 1,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "apartment",
+      "distance": "1.1 miles from campus",
+      "image": "https://images.unsplash.com/photo-1464037866556-6812c9d1c72e?w=400&h=300&fit=crop",
+      "lat": 37.2682,
+      "lng": -76.7133,
+      "amenities": ["gym", "pool"],
+      "rating": 4.3,
+      "reviewCount": 25,
+      "reviews": [
+        {"author": "Sophia Lee", "avatar": "SL", "date": "2024-08-12", "rating": 4, "text": "Good amenities and quiet neighborhood."}
+      ],
+      "landlord": {
+        "name": "James Edwards",
+        "rating": 4.2,
+        "likelihood": 84,
+        "tags": ["Quiet", "Professional"],
+        "reviews": [
+          {"author": "Student CC", "rating": 5, "text": "Very calm and professional landlord."},
+          {"author": "Student DD", "rating": 3, "text": "Could be more responsive to emails."}
+        ]
+      }
+    },
+    {
+      "id": 16,
+      "title": "Crescent House",
+      "address": "105 Bacon Ave, Williamsburg, VA",
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "house",
+      "distance": "1.0 miles from campus",
+      "image": "https://images.unsplash.com/photo-1462394988541-7b5a05b4e9d7?w=400&h=300&fit=crop",
+      "lat": 37.2728,
+      "lng": -76.7110,
+      "amenities": ["parking", "pets"],
+      "rating": 4.6,
+      "reviewCount": 40,
+      "reviews": [
+        {"author": "David Turner", "avatar": "DT", "date": "2024-07-15", "rating": 5, "text": "Spacious home, great for families."}
+      ],
+      "landlord": {
+        "name": "Nancy Wilson",
+        "rating": 4.7,
+        "likelihood": 90,
+        "tags": ["Family Friendly", "Helpful", "Reliable"],
+        "reviews": [
+          {"author": "Student EE", "rating": 5, "text": "Wonderful for families."},
+          {"author": "Student FF", "rating": 4, "text": "Responsive and reliable."}
+        ]
+      }
+    },
+    {
+      "id": 17,
+      "title": "Parkside Villas",
+      "address": "200 Stadium Dr, Williamsburg, VA",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "apartment",
+      "distance": "0.4 miles from campus",
+      "image": "https://images.unsplash.com/photo-1494522358652-1a670abd235c?w=400&h=300&fit=crop",
+      "lat": 37.2733,
+      "lng": -76.7083,
+      "amenities": ["laundry", "parking", "pool"],
+      "rating": 4.4,
+      "reviewCount": 32,
+      "reviews": [
+        {"author": "Olivia Park", "avatar": "OP", "date": "2024-08-05", "rating": 4, "text": "Clean and well maintained."}
+      ],
+      "landlord": {
+        "name": "William Harris",
+        "rating": 4.5,
+        "likelihood": 89,
+        "tags": ["Responsive", "Clean", "Professional"],
+        "reviews": [
+          {"author": "Student GG", "rating": 5, "text": "Very responsive landlord."},
+          {"author": "Student HH", "rating": 4, "text": "Property always well maintained."}
+        ]
+      }
+    },
+    {
+      "id": 18,
+      "title": "Jamestown Crossing",
+      "address": "416 Merrimac Trail, Williamsburg, VA",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "townhouse",
+      "distance": "0.9 miles from campus",
+      "image": "https://images.unsplash.com/photo-1530585869404-9bf598f9a12c?w=400&h=300&fit=crop",
+      "lat": 37.2699,
+      "lng": -76.7109,
+      "amenities": ["pets", "laundry", "parking"],
+      "rating": 4.2,
+      "reviewCount": 27,
+      "reviews": [
+        {"author": "Emily Brooks", "avatar": "EB", "date": "2024-07-18", "rating": 4, "text": "Convenient location, nice neighborhood."}
+      ],
+      "landlord": {
+        "name": "Evan Clark",
+        "rating": 4.3,
+        "likelihood": 85,
+        "tags": ["Friendly", "Helpful", "Fair"],
+        "reviews": [
+          {"author": "Student II", "rating": 5, "text": "Easy to work with and friendly."},
+          {"author": "Student JJ", "rating": 4, "text": "Approachable and knowledgeable."}
+        ]
+      }
+    },
+    {
+      "id": 19,
+      "title": "Laney Apartments",
+      "address": "1400 Middle St, Williamsburg, VA",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "apartment",
+      "distance": "0.6 miles from campus",
+      "image": "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=400&h=300&fit=crop",
+      "lat": 37.2687,
+      "lng": -76.7070,
+      "amenities": ["laundry", "gym"],
+      "rating": 4.3,
+      "reviewCount": 26,
+      "reviews": [
+        {"author": "Ryan Smith", "avatar": "RS", "date": "2024-08-01", "rating": 4, "text": "Well priced and centrally located."}
+      ],
+      "landlord": {
+        "name": "Olivia Lewis",
+        "rating": 4.2,
+        "likelihood": 83,
+        "tags": ["Affordable", "Responsive"],
+        "reviews": [
+          {"author": "Student KK", "rating": 4, "text": "Good value for price."},
+          {"author": "Student LL", "rating": 4, "text": "Quick maintenance responses."}
+        ]
+      }
+    },
+    {
+      "id": 20,
+      "title": "The Grove House",
+      "address": "5220 Center St, Williamsburg, VA",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "priceBase": 730,
+      "priceRaised": 800,
+      "spotsLeft": 7,
+      "price": 730,
+      "type": "house",
+      "distance": "1.2 miles from campus",
+      "image": "https://images.unsplash.com/photo-1501183638714-4e6b5552fb54?w=400&h=300&fit=crop",
+      "lat": 37.2716,
+      "lng": -76.7136,
+      "amenities": ["pets", "parking", "pool"],
+      "rating": 4.7,
+      "reviewCount": 41,
+      "reviews": [
+        {"author": "Amanda Collins", "avatar": "AC", "date": "2024-07-22", "rating": 5, "text": "Beautiful property and quiet street."}
+      ],
+      "landlord": {
+        "name": "Charles Evans",
+        "rating": 4.6,
+        "likelihood": 90,
+        "tags": ["Friendly", "Supportive", "Responsive"],
+        "reviews": [
+          {"author": "Student MM", "rating": 5, "text": "Very good at communicating."},
+          {"author": "Student NN", "rating": 4, "text": "Helps tenants promptly."}
+        ]
+      }
+    }
+  ]
+  
