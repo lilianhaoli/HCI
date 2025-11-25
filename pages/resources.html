@@ -1,158 +1,371 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>HomeMore — Tools</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Tools - HomeMore</title>
+    <script src="https://kit.fontawesome.com/f4efa66e1d.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-  </head>
-  <body>
-    <div class="app-shell tools-shell dashboard-shell">
-      <main class="tools-layout">
-        <aside class="sidebar" aria-label="Primary">
-          <div class="sidebar-top">
-            <div class="sidebar-logo">HomeMore</div>
-            <div class="primary-nav">
-              <a class="btn-nav" href="home.html">Home</a>
-              <a class="btn-nav" href="search.html">Search</a>
-              <a class="btn-nav active" href="tools.html">Tools</a>
-            </div>
-          </div>
-          <ul class="tools-list">
-            <li class="tool-item"><span class="tool-icon">👤</span><span class="tool-label">Profile</span></li>
-            <li class="tool-item"><span class="tool-icon">⚙️</span><span class="tool-label">General</span></li>
-            <li class="tool-item"><span class="tool-icon">🖼️</span><span class="tool-label">Appearance</span></li>
-            <li class="tool-item"><span class="tool-icon">🔊</span><span class="tool-label">Audio</span></li>
-            <li class="tool-item"><span class="tool-icon">🔍</span><span class="tool-label">Scanning</span></li>
-            <li class="tool-item"><span class="tool-icon">📝</span><span class="tool-label">Text Parsing</span></li>
-            <li class="tool-item"><span class="tool-icon">🌐</span><span class="tool-label">Translation</span></li>
-            <li class="tool-item"><span class="tool-icon">📋</span><span class="tool-label">Shortcuts</span></li>
-            <li class="tool-item"><span class="tool-icon">⬇️</span><span class="tool-label">Backup</span></li>
-            <li class="tool-item"><span class="tool-icon">❓</span><span class="tool-label">About HomeMore</span></li>
-          </ul>
-          <div class="sidebar-help">❓<span>Help</span></div>
-        </aside>
+    <link href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/pages/resources.css">
+</head>
+<body>
+    <!-- Thin Dark Green Accent -->
+    <div class="wm-dark-skinny"></div>
 
-        <div class="main-area">
-          <header class="site-header tools-header">
-            <div class="left">
-              <div class="logo">🏡</div>
-              <div class="brand-title">HomeMore Tools</div>
-            </div>
-            <!-- center header fills previous empty space with quick actions/search -->
-            <div class="center-header" role="region" aria-label="Tool actions">
-              <div class="header-search">
-                <input id="tools-quick-search" placeholder="Quick search tools or settings" />
-                <button class="btn-outline" aria-label="search tools">🔍</button>
-              </div>
-              <div class="header-actions">
-                <button class="btn-outline">Import</button>
-                <button class="btn-outline">Export</button>
-                <div class="header-pill">Beta</div>
-              </div>
-            </div>
-            <div class="right">
-              <div class="icons">≡ 📶</div>
-              <div class="profile">John Doe ▾</div>
-            </div>
-          </header>
+    <!-- Desktop Header -->
+    <header class="main-header">
+        <div class="header-left">
+            <a href="../index.html" class="site-title"><img src="../img/HomeMore_logo.png" alt="HomeMore Logo"></a>
+            <nav class="desktop-nav">
+                <a href="../pages/search.html" class="nav-link">Search</a>
+                <a href="../pages/resources.html" class="nav-link active">Resources</a>
+                <a href="../pages/compare.html" class="nav-link">Comparison</a>
+                <a href="../pages/saved.html" class="nav-link">Saved</a>
+                <a href="#messages" class="nav-link">Messages</a>
+            </nav>
+        </div>
+        <div class="header-right-welcome">
+            <span class="welcome-text">Welcome Back,</span>
+            <span class="user-name">John Doe</span>
+        </div>
+    </header>
 
-          <section class="tools-main">
-            <div class="tools-content">
-            <section class="tool-section">
-              <div class="tool-header">
-                <h2>Comparison Model</h2>
-                <div class="tool-cta">
-                    <a class="btn-go" href="#">Go →</a>
-                </div>
-              </div>
-              <details class="tool-details">
-                <summary>View details</summary>
-                <div class="tool-body">Compare similar listings by price, size, and recent sales. Use this model to weigh trade-offs and get an automated score.</div>
-              </details>
-            </section>
-            <section class="tool-section">
-              <div class="tool-header">
-                <h2>Market Tracker</h2>
-                <div class="tool-cta">
-                  <a class="btn-go" href="#">Go →</a>
-                </div>
-              </div>
-              <details class="tool-details">
-                <summary>View details</summary>
-                <div class="tool-body">Track median rents, vacancy rates, and listing velocity in your selected neighborhoods over time.</div>
-              </details>
-            </section>
-            <section class="tool-section">
-              <div class="tool-header">
-                <h2>First Time Renter Guide</h2>
-                <div class="tool-cta">
-                  <a class="btn-go" href="first-time-renter.html">Go →</a>
-                </div>
-              </div>
-              <details class="tool-details">
-                <summary>View details</summary>
-                <div class="tool-body">Step-by-step checklist for applications, budgeting tips, and sample letters to landlords. Great for renters new to the area.</div>
-              </details>
-            </section>
-            <section class="tool-section">
-              <div class="tool-header">
-                <h2>Reviews Viewer</h2>
-                <div class="tool-cta">
-                  <a class="btn-go" href="#">Go →</a>
-                </div>
-              </div>
-              <details class="tool-details">
-                <summary>View details</summary>
-                <div class="tool-body">Aggregate tenant reviews and sentiment analysis for a quick overview of landlord responsiveness and maintenance quality.</div>
-              </details>
-            </section>
-            <section class="tool-section">
-              <div class="tool-header">
-                <h2>User Settings</h2>
-                <div class="tool-cta">
-                  <a class="btn-go" href="#">Go →</a>
-                </div>
-              </div>
-              <details class="tool-details">
-                <summary>View details</summary>
-                <div class="tool-body">Manage notifications, account preferences, and data export options from here.</div>
-              </details>
-            </section>
-          </div>
-
-          <!-- right rail: quick actions, shortcuts, tips -->
-          <aside class="tools-rail" aria-label="Quick tools and shortcuts">
-            <div class="rail-card">
-              <h4>Quick Actions</h4>
-              <div class="rail-actions">
-                <button class="btn-outline">♡ View Saved</button>
-                <button class="btn-outline">New Comparison</button>
-                <button class="btn-outline">Export Data</button>
-              </div>
-            </div>
-            <div class="rail-card">
-              <h4>Shortcuts</h4>
-              <div class="rail-actions">
-                <button class="btn-outline">My Profile</button>
-                <button class="btn-outline">Account Settings</button>
-              </div>
-            </div>
-            <div class="rail-card">
-              <h4>Tips</h4>
-              <p class="muted">Use the Comparison Model to quickly score similar listings. Expand details to view more without moving the page.</p>
-            </div>
-          </aside>
-
-          <footer class="tools-footer">
-            <div class="social">Stay Connected With Us! <span class="social-icons"></span></div>
-            <div class="links">Navigate: <a href="#">About Us</a> · <a href="#">Our Team</a> · <a href="#">Contact Us</a> · <a href="#">Support</a></div>
-          </footer>
-        </section>
-      </main>
+    <!-- Mobile Header -->
+    <div class="mobile-header">
+        <button class="mobile-hamburger" aria-label="Toggle Menu" onclick="toggleSidebar()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="mobile-logo">
+            <img src="../img/BW_HomeMore_logo.png" alt="HomeMore Logo">
+        </div>
+        <div class="mobile-user">John Doe</div>
     </div>
-  </body>
-  <script src="js/tools.js" defer></script>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Mobile Sidebar -->
+    <aside class="mobile-sidebar">
+        <div class="sidebar-header">
+            <h2>Welcome Back,</h2>
+            <p>John Doe</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="search.html" class="sidebar-nav-link">
+                <span>Search Listings</span>
+                <span>→</span>
+            </a>
+            <a href="resources.html" class="sidebar-nav-link active">
+                <span>Resources & Tools</span>
+                <span>→</span>
+            </a>
+            <a href="compare.html" class="sidebar-nav-link">
+                <span>Compare Properties</span>
+                <span class="comparison-badge">3</span>
+            </a>
+            <a href="saved.html" class="sidebar-nav-link">
+                <span>Saved Listings</span>
+                <span>→</span>
+            </a>
+            <a href="#messages" class="sidebar-nav-link">
+                <span>Messages</span>
+                <span>→</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Quick Actions</div>
+            <button class="sidebar-button">Post a Listing</button>
+            <button class="sidebar-button secondary">Market Trends</button>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Need Help?</div>
+            <a href="first-time-renter.html" class="sidebar-nav-link">
+                <span>First-Time Renter Guide</span>
+                <span>→</span>
+            </a>
+            <a href="#faq" class="sidebar-nav-link">
+                <span>FAQ</span>
+                <span>→</span>
+            </a>
+            <a href="#contact" class="sidebar-nav-link">
+                <span>Contact Support</span>
+                <span>→</span>
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Account</div>
+            <a href="#profile" class="sidebar-nav-link">
+                <span>Profile Settings</span>
+                <span>→</span>
+            </a>
+            <a href="#notifications" class="sidebar-nav-link">
+                <span>Notifications</span>
+                <span>→</span>
+            </a>
+            <a href="#logout" class="sidebar-nav-link">
+                <span>Log Out</span>
+                <span>→</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <h1>Resources & Tools</h1>
+        <p>Everything you need to navigate the off-campus housing journey with confidence. Guides, calculators, tips, and expert advice—all in one place.</p>
+    </section>
+
+    <!-- Main Resources Grid -->
+    <section class="resources-section">
+        <div class="section-intro">
+            <h2>Essential Guides & Resources</h2>
+            <p>Comprehensive resources designed specifically for William & Mary students moving off-campus.</p>
+        </div>
+
+        <div class="resources-grid">
+            <!-- First Time Renter Guide - Featured -->
+            <a href="first-time-renter.html" class="resource-card featured">
+                <div class="resource-card-header">
+                    <div class="featured-badge">Most Popular</div>
+                    <div class="resource-icon">📖</div>
+                    <h3>First-Time Renter Guide</h3>
+                </div>
+                <div class="resource-card-body">
+                    <p>Your complete roadmap to renting your first off-campus apartment. From understanding lease agreements to moving day preparation, we've got you covered with step-by-step guidance.</p>
+                    <span class="resource-link">Start Reading <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <!-- Market Trends -->
+            <a href="#trends" class="resource-card">
+                <div class="resource-card-header">
+                    <div class="resource-icon">📊</div>
+                    <h3>Market Trends & Insights</h3>
+                </div>
+                <div class="resource-card-body">
+                    <p>Stay informed with current rental market data, pricing trends, and neighborhood comparisons. Make data-driven decisions about where and when to rent.</p>
+                    <span class="resource-link">View Trends <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <!-- FAQ -->
+            <a href="#faq" class="resource-card">
+                <div class="resource-card-header">
+                    <div class="resource-icon">❓</div>
+                    <h3>Frequently Asked Questions</h3>
+                </div>
+                <div class="resource-card-body">
+                    <p>Find quick answers to common questions about renting, leases, utilities, maintenance, roommates, and everything in between.</p>
+                    <span class="resource-link">Browse FAQ <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </a>
+
+            <!-- Renting Tips -->
+            <a href="#tips" class="resource-card">
+                <div class="resource-card-header">
+                    <div class="resource-icon">💡</div>
+                    <h3>Renting Tips & Tricks</h3>
+                </div>
+                <div class="resource-card-body">
+                    <p>Expert advice and insider tips to help you avoid common pitfalls, spot red flags, and make your off-campus living experience smoother and more affordable.</p>
+                    <span class="resource-link">See Tips <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Quick Tools Section -->
+    <section class="quick-tools-section" id="tips">
+        <div class="quick-tools-container">
+            <div class="section-intro">
+                <h2>Quick Tools</h2>
+                <p>Use these tools to plan your budget, compare options, and stay organized during your housing search.</p>
+            </div>
+
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h4>Rent Budget Calculator</h4>
+                    <p>Estimate how much rent you can afford each month based on your income, aid, and other expenses.</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h4>Roommate Matching Checklist</h4>
+                    <p>Clarify expectations around guests, cleaning, noise, and bills before you sign a lease together.</p>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-icon">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <h4>Move-In / Move-Out Checklist</h4>
+                    <p>Track key tasks, documents, and photos so you protect your security deposit from day one.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloadable Resources -->
+    <section class="download-section">
+        <div class="download-container">
+            <div class="section-intro">
+                <h2>Downloadable Templates</h2>
+                <p>Save or print these checklists, worksheets, and sample emails to stay organized offline.</p>
+            </div>
+
+            <div class="downloads-grid">
+                <a href="files/apartment-walkthrough-checklist.pdf" class="download-card">
+                    <div class="download-icon">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                    </div>
+                    <div class="download-info">
+                        <h4>Apartment Walkthrough Checklist (PDF)</h4>
+                        <p>Use this when you tour or move in to document existing damage and conditions.</p>
+                    </div>
+                </a>
+
+                <a href="files/sample-maintenance-request.docx" class="download-card">
+                    <div class="download-icon">
+                        <i class="fa-solid fa-wrench"></i>
+                    </div>
+                    <div class="download-info">
+                        <h4>Sample Maintenance Request Email</h4>
+                        <p>A fill‑in‑the‑blank template for clearly reporting issues to your landlord or property manager.</p>
+                    </div>
+                </a>
+
+                <a href="files/monthly-budget-template.xlsx" class="download-card">
+                    <div class="download-icon">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                    </div>
+                    <div class="download-info">
+                        <h4>Student Housing Budget Template</h4>
+                        <p>Plan for rent, utilities, groceries, transportation, and other recurring costs.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Preview Section -->
+    <section class="faq-preview-section" id="faq">
+        <div class="faq-preview-container">
+            <div class="section-intro">
+                <h2>Top Questions</h2>
+                <p>Get quick answers to the most common questions students have about renting off-campus.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>When should I start looking for off-campus housing?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Most students begin searching one to three semesters before they plan to move, depending on how competitive the local market is. Starting earlier gives you more options, time to visit units, and flexibility with roommates.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What upfront costs should I expect before move-in?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Typical upfront costs include first month’s rent, a security deposit, application fees, and possibly last month’s rent or a parking fee. Budgeting for utilities deposits and basic furnishings is also helpful.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do I need a co-signer or guarantor?</span>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Many student‑focused landlords require a guarantor if you do not meet income or credit requirements on your own. This is often a parent or guardian who agrees to be responsible if rent is not paid.</p>
+                </div>
+            </div>
+
+            <a href="full-faq.html" class="view-all-btn">View All FAQ</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>About HomeMore</h3>
+                    <p>HomeMore helps William & Mary students find, compare, and manage off‑campus housing with tools built for student life.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Helpful Links</h3>
+                    <ul>
+                        <li><a href="search.html">Search Listings</a></li>
+                        <li><a href="resources.html">Resources & Guides</a></li>
+                        <li><a href="compare.html">Compare Properties</a></li>
+                        <li><a href="saved.html">Saved Homes</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="full-faq.html">FAQ</a></li>
+                        <li><a href="mailto:support@homemore.edu">Email Support</a></li>
+                        <li><a href="#messages">Message Center</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2025 HomeMore · Not an official service of William & Mary.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.mobile-sidebar');
+            const overlay = document.querySelector('.sidebar-overlay');
+            const hamburger = document.querySelector('.mobile-hamburger');
+
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // FAQ accordion behavior
+        document.querySelectorAll('.faq-question').forEach(function(question) {
+            question.addEventListener('click', function () {
+                const item = this.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(function(i) {
+                    i.classList.remove('active');
+                });
+
+                // Toggle clicked one
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
 </html>
