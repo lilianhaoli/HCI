@@ -9,35 +9,34 @@
   --light-gray: #f5f5f5;
   --medium-gray: #e0e0e0;
   --text-dark: #333333;
-  }
-  
-  /* Reset */
-  * {
+}
+
+/* Reset */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Open Sans", sans-serif; /* Apply Open Sans globally */
+}
 
-  }
-  
-  body {
-  font-family: "Open Sans", sans-serif; /* Apply Open Sans globally */
+body {
+  font-family: "Open Sans", sans-serif;
   background: var(--light-gray);
-  }
-  
-  /* ---------------------------------
+}
+
+/* ---------------------------------
    Skinny Top Bar
-  -----------------------------------*/
-  .wm-dark-skinny {
+-----------------------------------*/
+.wm-dark-skinny {
   background: var(--wm-dark-green);
   height: 12px;
   width: 100%;
-  }
-  
-  /* ---------------------------------
+}
+
+/* ---------------------------------
    Desktop Header
-  -----------------------------------*/
-  .main-header {
+-----------------------------------*/
+.main-header {
   background: var(--white);
   height: 80px;
   width: 100%;
@@ -47,49 +46,49 @@
   border-bottom: 2px solid var(--wm-green);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 1100;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header-left {
+}
+
+.header-left {
   display: flex;
   align-items: center;
   margin-left: 10px;
   gap: 60px;
   margin-right: 20px;
-  }
-  
-  .site-title img {
-    width: 200px;
-    margin-top: 10px;
+}
+
+.site-title img {
+  width: 200px;
+  margin-top: 10px;
   color: var(--wm-green);
   text-decoration: none;
-  }
-  
-  .desktop-nav {
+}
+
+.desktop-nav {
   display: flex;
   gap: 35px;
   align-items: center;
-  }
-  
-  .nav-link {
+}
+
+.nav-link {
   text-decoration: none;
   color: var(--text-dark);
   font-size: 16px;
   font-weight: 500;
   transition: color 0.3s ease;
   position: relative;
-  }
-  
-  .nav-link:hover {
+}
+
+.nav-link:hover {
   color: var(--wm-green);
-  }
-  
-  .nav-link.active {
+}
+
+.nav-link.active {
   color: var(--wm-green);
-  }
-  
-  .nav-link.active::after {
+}
+
+.nav-link.active::after {
   content: '';
   position: absolute;
   bottom: -8px;
@@ -97,10 +96,10 @@
   right: 0;
   height: 3px;
   background: var(--wm-green);
-  }
-  
-  /* Comparison badge */
-  .comparison-badge {
+}
+
+/* Comparison badge */
+.comparison-badge {
   background: var(--wm-green);
   color: var(--white);
   border-radius: 12px;
@@ -108,10 +107,10 @@
   font-size: 12px;
   font-weight: 700;
   margin-left: 5px;
-  }
-  
-  /* Header Right - Welcome Section */
-  .header-right-welcome {
+}
+
+/* Header Right - Welcome Section */
+.header-right-welcome {
   background: var(--wm-dark-green);
   height: 100%;
   padding: 0 30px;
@@ -122,19 +121,21 @@
   gap: 4px;
   min-width: 200px;
   flex-shrink: 0;
-  }
-  
-  .welcome-text {
+  position: relative;
+  z-index: 1000; /* Less than dropdown */
+}
+
+.welcome-text {
   color: var(--white);
   font-size: 14px;
   font-weight: 400;
-  }
-  
-  .user-name {
+}
+
+.user-name {
   color: var(--white);
   font-size: 18px;
   font-weight: 700;
-  }
+}
   
   /* ---------------------------------
    Mobile Header (Hidden by default)
@@ -378,69 +379,68 @@
   }
   
   /* Search Bar */
-  .search-container {
-    position: relative;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  /* Search bar */
-  .search-bar {
-    width: 100%;
-    height: 60px;
-    border: none;
-    border-radius: 8px 8px 0 0; /* Only rounded bottom */
-    padding: 0 60px 0 20px;
-    font-size: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    outline: none;
-  }
-  
-  .search-bar::placeholder {
-    color: #999;
-  }
-  
-  /* Dropdown container */
-  #searchDropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: white;
-    border: 1px solid #ddd;
-    border-top-left-radius: 0;   /* top corners flat */
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    overflow-y: auto;
-    display: none;
-    z-index: 1000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    text-align: left;
-  }
-  
-  /* Each dropdown item left-aligned, no hr line */
-  #searchDropdown .dropdown-item {
-    padding: 12px 15px;
-    cursor: pointer;
-    border-bottom: none;
-    text-align: left;
-  }  
-  /* Dropdown item */
-  .dropdown-item {
-    padding: 12px 15px;
-    cursor: pointer;
-    border-bottom: none; /* removed lines */
-  }
-  
-  .dropdown-item:hover {
-    background: #f7f7f7;
-  }
-  
-  .no-result {
-    text-align: center;
-    color: #777;
-  }
+ /* Search Bar Container */
+.search-container {
+  position: relative; /* Crucial for positioning dropdown */
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Search Input */
+.search-bar {
+  width: 100%;
+  height: 60px;
+  border: none;
+  border-radius: 8px 8px 0 0; /* Rounded top corners */
+  padding: 0 60px 0 20px;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  outline: none;
+}
+
+.search-bar::placeholder {
+  color: #999;
+}
+
+/* Dropdown Container */
+#searchDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  overflow-y: auto;
+  max-height: 240px; /* 5 items approx 48px height each */
+  display: none;
+  z-index: 2100; /* High enough to appear above welcome section */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  text-align: left;
+}
+
+
+/* Dropdown Items */
+#searchDropdown .dropdown-item {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: none;
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background: #f7f7f7;
+}
+
+/* No Results Message */
+.no-result {
+  text-align: center;
+  color: #777;
+}
+
   
   /* Search button */
   .search-btn {
