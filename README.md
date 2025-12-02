@@ -1,4 +1,4 @@
 # HCI
 
 HomeMore
-Website: http://lilianhaoli.github.io/HCI/
+Website: <http://lilianhaoli.github.io/HCI/>
